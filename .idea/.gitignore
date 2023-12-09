@@ -1,0 +1,6 @@
+# Default ignored files
+/shelf/
+/.idea/
+/db.sqlite3
+/workspace.xml
+/media/upload_file/
