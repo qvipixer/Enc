@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Загрузка файлов</title>
+</head>
+<body>
+<div align="center">
+    <center>
+        <h1>
+            <a href="/upload">Загрузить файлы</a>
+            <br>
+            <a href="/download">Скачать файлы</a>
+        </h1>
+    </center>
+</div>
+
+
+<div>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Имя отправителя файла</label>
+            <input name="text" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Сюда имя отправителя файла</div>
+        </div>
+        <div class="mb-3">
+            <label for="text_to_serv" class="form-label">Имя получателя файла</label>
+            <input name="text_to" type="text" class="form-control" id="text_to_serv" aria-describedby="text_to">
+            <div id="text_to" class="form-text">Сюда имя получателя файла</div>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Файл</label>
+            <input name="file" class="form-control" type="file" id="formFile" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+</body>
+</html>

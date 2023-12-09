@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    -->
+    <title>Скачать файлы</title>
+</head>
+<body>
+<div align="center">
+    <center>
+        <h1>
+            <a href="/upload">Загрузить файлы</a>
+            <br>
+            <a href="/download">Скачать файлы</a>
+        </h1>
+    </center>
+</div>
+<div class="container">
+    <table border="2px" align="center" width="100%">
+        <tr>
+            <th>Имя отправителя файла:</th>
+            <th>Имя получателя файла</th>
+            <th>Дата время создания</th>
+            <th>Ссылка для скачивания</th>
+        </tr>
+        {% for file in all_files %}
+        <tr>
+            <td>{{ file.text }}</td>
+            <td>{{ file.text_to }}</td>
+            <td>{{ file.data_create }}</td>
+            <td><a href="{{ file.file.url }}">{{ file.file.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!--    {% for file in all_files %}
+        <div>
+            <div>
+                Имя отправителя файла: {{ file.text }}<br>
+                Имя получателя файла: {{ file.text_to }}<br>
+                Дата время создания: {{ file.data_create }}<br>
+                <a href="{{ file.file.url }}">Файл: {{ file.file.name }}</a><br>
+            </div>
+
+        </div>
+
+        {% endfor %}
+    <br>
+    --!>
+</div>
+
+
+</body>
+</html>
