@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.min.css' %}">
+    <title>{% block title %} {{ title }} {% endblock %}</title>
+</head>
+<body>
+<div class="container">
+    <table border="2px" align="center" width="100%">
+        <tr align="center">
+            <th></th>
+            <th><a href="/upload">Загрузить файлы</a></th>
+            <th><a href="/">Главная</a></th>
+            <th><a href="/download">Скачать файлы</a></th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+
+{% block download %}
+{% endblock %}
+
+
+<div data-width="100%">
+    <center>
+        <p>
+        <h1><font size="150">Carthago Delenda Est !</font></h1><br>
+        <h2><font size="120">Carthago Delenda Est !</font></h2><br>
+        <h3><font size="90">Carthago Delenda Est !</font></h3><br>
+        <h4><font size="60">Carthago Delenda Est !</font></h4><br>
+        <h5><font size="30">Carthago Delenda Est !</font></h5>
+        </p>
+    </center>
+</div>
+</body>
+{% block footer %}
+<footer class="blog-footer">
+
+</footer>
+{% endblock %}
+</html>

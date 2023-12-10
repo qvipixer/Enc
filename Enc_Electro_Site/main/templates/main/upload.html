@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <title>Загрузка файлов</title>
-</head>
-<body>
-<div align="center">
-    <center>
-        <h1>
-            <a href="/upload">Загрузить файлы</a>
-            <br>
-            <a href="/download">Скачать файлы</a>
-        </h1>
-    </center>
-</div>
-
-
-<div>
+{% extends 'main/template_0.html' %}
+{% block download %}
+<div class="container">
     <form method="POST" action="/upload" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
@@ -37,5 +20,4 @@
         <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>
-</body>
-</html>
+{% endblock %}
