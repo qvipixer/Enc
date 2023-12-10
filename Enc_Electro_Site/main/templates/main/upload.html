@@ -1,5 +1,5 @@
 {% extends 'main/template_0.html' %}
-{% block download %}
+{% block upload %}
 <div class="container">
     <form method="POST" action="/upload" enctype="multipart/form-data">
         {% csrf_token %}
