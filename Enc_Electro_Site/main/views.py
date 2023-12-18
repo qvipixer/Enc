@@ -32,8 +32,6 @@ def download(request):
 
 
 def upload(request):
-    # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    # print(request.GET)
     print(
         "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     )
@@ -41,15 +39,6 @@ def upload(request):
     print(
         "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     )
-    # print(request.POST)
-    # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    # print(request.FILES)
-    # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-    # print(request.__dict__)
-    # print(request.POST.get('text'))
-    # print(request.POST.get('text_to'))
-    # print(request.FILES.get('file'))
     if request.GET:
         print("!!! __GET__ !!!")
         print(request.META.get("REMOTE_ADDR"))
@@ -60,14 +49,9 @@ def upload(request):
 
     if request.POST:
         print("!!! __POST__ !!!")
-        # print(request)
-        # print(request.__dict__)
         print(request.META.get("REMOTE_ADDR"))
         print(request.POST)
         print(request.FILES)
-        # print(request.POST.get('text'))
-        # print(request.POST.get('text_to'))
-        # print(request.FILES.get('file'))
         print("!!! __POST__ !!!")
 
         Myfiles.objects.create(
