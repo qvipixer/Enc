@@ -28,6 +28,15 @@ class AutomationLog_Object(models.Model):
         verbose_name="Описание объекта", max_length=100
     )
 
+    # Красивая хлебная крошка
+    def __str__(self):
+        return f"{self.title}"
+        # return f'# {self.id} {self.name}'
+
+    class Meta:
+        verbose_name = "Объект"
+        verbose_name_plural = "Объекты"
+
 
 class AutomationLog_Object_Sub(models.Model):
     title = models.CharField(verbose_name="Электропомещение", max_length=100)
@@ -35,19 +44,43 @@ class AutomationLog_Object_Sub(models.Model):
         verbose_name="Описание Электропомещения", max_length=100
     )
 
+    # Красивая хлебная крошка
+    def __str__(self):
+        return f"{self.title}"
 
-class AutomationLog_Pproject(models.Model):
+    class Meta:
+        verbose_name = "Электропомещение"
+        verbose_name_plural = "Электропомещения"
+
+
+class AutomationLog_Project(models.Model):
     title = models.CharField(verbose_name="Проект", max_length=100)
     title_description = models.CharField(
         verbose_name="Описание проекта", max_length=100
     )
 
+    # Красивая хлебная крошка
+    def __str__(self):
+        return f"{self.title}"
 
-class AutomationLog_Pproject_Sub(models.Model):
+    class Meta:
+        verbose_name = "Проект"
+        verbose_name_plural = "Проекты"
+
+
+class AutomationLog_Project_Sub(models.Model):
     title = models.CharField(verbose_name="Механизм", max_length=100)
     title_description = models.CharField(
         verbose_name="Описание механизма", max_length=100
     )
+
+    # Красивая хлебная крошка
+    def __str__(self):
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = "Механизм"
+        verbose_name_plural = "Механизмы"
 
 
 class MyAutomationLog(models.Model):
@@ -66,7 +99,7 @@ class MyAutomationLog(models.Model):
         related_name="record_object",
         on_delete=models.CASCADE,
         blank=True,
-        verbose_name="Категория",
+        verbose_name="Объект",
     )
 
     record_object_sub = models.ForeignKey(
@@ -74,28 +107,34 @@ class MyAutomationLog(models.Model):
         related_name="record_object_sub",
         on_delete=models.CASCADE,
         blank=True,
-        verbose_name="Подкатегория",
+        verbose_name="Электропомещение",
     )
 
     record_project = models.ForeignKey(
-        AutomationLog_Pproject,
+        AutomationLog_Project,
         related_name="record_project",
         on_delete=models.CASCADE,
         blank=True,
-        verbose_name="Подкатегория",
+        verbose_name="Проект",
     )
 
     record_project_sub = models.ForeignKey(
-        AutomationLog_Pproject_Sub,
+        AutomationLog_Project_Sub,
         related_name="record_project_sub",
         on_delete=models.CASCADE,
         blank=True,
-        verbose_name="Подкатегория",
+        verbose_name="Механизм",
     )
 
+    # Красивая хлебная крошка
+    def __str__(self):
+        return (
+            f"[{self.record_author}] [{self.record_object}] [{self.record_data_create}]"
+        )
+        # return f'# {self.id} {self.name}'
+
     # def __str__(self):
-    #    return f"# {self.id} {self.text} от: [{self.text_to}] кому: [{self.file}]"
-    #    # return f'# {self.id} {self.name}'
+    #    return "{}".format(self.id)
 
     class Meta:
         verbose_name = "Запись"

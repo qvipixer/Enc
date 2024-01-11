@@ -5,8 +5,8 @@ from .models import (
     MyAutomationLog,
     AutomationLog_Object,
     AutomationLog_Object_Sub,
-    AutomationLog_Pproject,
-    AutomationLog_Pproject_Sub,
+    AutomationLog_Project,
+    AutomationLog_Project_Sub,
 )
 
 
@@ -39,15 +39,15 @@ class AutomationLog_Object_Sub_Admin(admin.ModelAdmin):
 admin.site.register(AutomationLog_Object_Sub, AutomationLog_Object_Sub_Admin)
 
 
-class AutomationLog_Pproject_Admin(admin.ModelAdmin):
+class AutomationLog_Project_Admin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(AutomationLog_Pproject, AutomationLog_Pproject_Admin)
+admin.site.register(AutomationLog_Project, AutomationLog_Project_Admin)
 
 
-class AutomationLog_Pproject_Sub_Admin(admin.ModelAdmin):
+class AutomationLog_Project_Sub_Admin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(AutomationLog_Pproject_Sub, AutomationLog_Pproject_Sub_Admin)
+admin.site.register(AutomationLog_Project_Sub, AutomationLog_Project_Sub_Admin)
