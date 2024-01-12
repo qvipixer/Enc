@@ -19,6 +19,7 @@ admin.site.register(Myfiles, Myfiles_Admin)
 
 
 class MyAutomationLog_Admin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("record_text",)}
     pass
 
 
@@ -26,6 +27,7 @@ admin.site.register(MyAutomationLog, MyAutomationLog_Admin)
 
 
 class AutomationLog_Object_Admin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     pass
 
 
@@ -33,6 +35,7 @@ admin.site.register(AutomationLog_Object, AutomationLog_Object_Admin)
 
 
 class AutomationLog_Object_Sub_Admin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     pass
 
 
@@ -40,6 +43,7 @@ admin.site.register(AutomationLog_Object_Sub, AutomationLog_Object_Sub_Admin)
 
 
 class AutomationLog_Project_Admin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     pass
 
 
@@ -47,6 +51,7 @@ admin.site.register(AutomationLog_Project, AutomationLog_Project_Admin)
 
 
 class AutomationLog_Project_Sub_Admin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     pass
 
 

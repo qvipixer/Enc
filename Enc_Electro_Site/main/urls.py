@@ -4,9 +4,4 @@ from .views import download
 from .views import page
 from .views import upload
 
-urlpatterns = [
-    path('', page),
-    path('upload', upload),
-    path('download', download)
-
-]
+urlpatterns = [path("", page), path("upload", upload), path("download", download)]

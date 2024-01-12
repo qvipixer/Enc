@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 
 # Create your models here.
@@ -23,10 +24,14 @@ class Myfiles(models.Model):
 
 
 class AutomationLog_Object(models.Model):
-    title = models.CharField(verbose_name="Объекта", max_length=100)
+    title = models.CharField(verbose_name="Объект", max_length=100)
     title_description = models.CharField(
         verbose_name="Описание объекта", max_length=100
     )
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def get_absolute_url(self):
+        return reverse("AutomationLog_Object_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -43,6 +48,10 @@ class AutomationLog_Object_Sub(models.Model):
     title_description = models.CharField(
         verbose_name="Описание Электропомещения", max_length=100
     )
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def get_absolute_url(self):
+        return reverse("AutomationLog_Object_Sub_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -58,6 +67,10 @@ class AutomationLog_Project(models.Model):
     title_description = models.CharField(
         verbose_name="Описание проекта", max_length=100
     )
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def get_absolute_url(self):
+        return reverse("AutomationLog_Project_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -73,6 +86,10 @@ class AutomationLog_Project_Sub(models.Model):
     title_description = models.CharField(
         verbose_name="Описание механизма", max_length=100
     )
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def get_absolute_url(self):
+        return reverse("AutomationLog_Project_Sub_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -93,7 +110,7 @@ class MyAutomationLog(models.Model):
     record_data_create = models.DateTimeField(
         verbose_name="Дата создания записи", auto_now=True
     )
-
+    slug = models.SlugField(max_length=50, unique=True)
     record_object = models.ForeignKey(
         AutomationLog_Object,
         related_name="record_object",
@@ -125,6 +142,9 @@ class MyAutomationLog(models.Model):
         blank=True,
         verbose_name="Механизм",
     )
+
+    def get_absolute_url(self):
+        return reverse("automation_record_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
