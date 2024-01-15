@@ -1,11 +1,46 @@
 from django.shortcuts import render
 
 from .models import Myfiles
+from .models import AutomationLog
 
 
 # Create your views here.
+def Automation_Log_View(request):
+    all_AutomationLog = AutomationLog.objects.all()
+
+    return render(
+        request,
+        template_name="main/Automation_Log_View.html",
+        context={
+            "title": "Просмотр журнала",
+            "all_AutomationLog": all_AutomationLog,
+        },
+    )
+
+
+def Automation_Log_View_Details(request):
+    all_AutomationLog_Details = AutomationLog.objects.all()
+    all_AutomationLog = request.GET.get("Automation_Log_View")  # GET переменная
+    return render(
+        request,
+        template_name="main/Automation_Log_View_Details.html",
+        context={
+            "title": "Подробно об ",
+            "all_AutomationLog": all_AutomationLog,
+            "all_AutomationLog_Details": all_AutomationLog_Details,
+        },
+    )
+
+
+def Automation_Log_Add(request):
+    return render(
+        request,
+        template_name="main/Automation_Log_Add.html",
+        context={"title": "Добавление в журнал"},
+    )
+
+
 def page(request):
-    # return render(request, 'index.html')
     return render(
         request,
         template_name="main/index.html",

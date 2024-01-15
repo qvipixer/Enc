@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (
     Myfiles,
-    MyAutomationLog,
+    AutomationLog,
     AutomationLog_Object,
     AutomationLog_Object_Sub,
     AutomationLog_Project,
@@ -18,12 +18,12 @@ class Myfiles_Admin(admin.ModelAdmin):
 admin.site.register(Myfiles, Myfiles_Admin)
 
 
-class MyAutomationLog_Admin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("record_text",)}
+class AutomationLog_Admin(admin.ModelAdmin):
+    prepopulated_fields = {"record_slug": ("record_text_title",)}
     pass
 
 
-admin.site.register(MyAutomationLog, MyAutomationLog_Admin)
+admin.site.register(AutomationLog, AutomationLog_Admin)
 
 
 class AutomationLog_Object_Admin(admin.ModelAdmin):
