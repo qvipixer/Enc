@@ -21,6 +21,12 @@ def Automation_Log_View(request):
 def Automation_Log_View_Details(request):
     all_AutomationLog_Details = AutomationLog.objects.all()
     all_AutomationLog = request.GET.get("Automation_Log_View")  # GET переменная
+    print()
+    print("all_AutomationLog_Details")
+    print(all_AutomationLog_Details)
+    print()
+    print("all_AutomationLog")
+    print(all_AutomationLog)
     return render(
         request,
         template_name="main/Automation_Log_View_Details.html",

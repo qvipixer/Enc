@@ -1,14 +1,10 @@
 {% extends 'main/template_0.html' %}
 {% block Automation_Log_View_Details %}
-        {% for details in all_AutomationLog_Details %}
-        <tr>
-            <td>{{ details.record_text_description }}</td>
-            <td>{{ record.record_author }}</td>
-            <td>{{ record.record_data_create }}</td>
-            <td>{{ record.record_object }}</td>
-            <td>{{ record.record_object_sub }}</td>
-            <td>{{ record.record_project }}</td>
-            <td>{{ record.record_project_sub }}</td>
-        </tr>
-        {% endfor %}
+{% for details in all_AutomationLog_Details %}
+<tr>
+
+    <td>{{ record.record_author }}</td>
+
+</tr>
+{% endfor %}
 {% endblock %}
