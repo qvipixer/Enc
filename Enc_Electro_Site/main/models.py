@@ -10,9 +10,7 @@ class Myfiles(models.Model):
         verbose_name="IP адрес отправителя файла",
     )
     file = models.FileField(verbose_name="Файл", upload_to="upload_file/")
-    data_create = models.DateTimeField(
-        verbose_name="Дата загрузки файла", auto_now=True
-    )
+    data_create = models.DateTimeField(verbose_name="Дата загрузки файла", auto_now=True)
 
     def __str__(self):
         return f"# {self.id} {self.text} от: [{self.text_to}] кому: [{self.file}]"
@@ -25,9 +23,7 @@ class Myfiles(models.Model):
 
 class AutomationLog_Object(models.Model):
     title = models.CharField(verbose_name="Объект", max_length=100)
-    title_description = models.CharField(
-        verbose_name="Описание объекта", max_length=100
-    )
+    title_description = models.CharField(verbose_name="Описание объекта", max_length=100)
     slug = models.SlugField(max_length=50, unique=True)
 
     def get_absolute_url(self):
@@ -45,15 +41,11 @@ class AutomationLog_Object(models.Model):
 
 class AutomationLog_Object_Sub(models.Model):
     title = models.CharField(verbose_name="Электропомещение", max_length=100)
-    title_description = models.CharField(
-        verbose_name="Описание Электропомещения", max_length=100
-    )
+    title_description = models.CharField(verbose_name="Описание Электропомещения", max_length=100)
     slug = models.SlugField(max_length=50, unique=True)
 
     def get_absolute_url(self):
-        return reverse(
-            viewname="AutomationLog_Object_Sub_url", kwargs={"slug": self.slug}
-        )
+        return reverse(viewname="AutomationLog_Object_Sub_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -66,9 +58,7 @@ class AutomationLog_Object_Sub(models.Model):
 
 class AutomationLog_Project(models.Model):
     title = models.CharField(verbose_name="Проект", max_length=100)
-    title_description = models.CharField(
-        verbose_name="Описание проекта", max_length=100
-    )
+    title_description = models.CharField(verbose_name="Описание проекта", max_length=100)
     slug = models.SlugField(max_length=50, unique=True)
 
     def get_absolute_url(self):
@@ -85,15 +75,11 @@ class AutomationLog_Project(models.Model):
 
 class AutomationLog_Project_Sub(models.Model):
     title = models.CharField(verbose_name="Механизм", max_length=100)
-    title_description = models.CharField(
-        verbose_name="Описание механизма", max_length=100
-    )
+    title_description = models.CharField(verbose_name="Описание механизма", max_length=100)
     slug = models.SlugField(max_length=50, unique=True)
 
     def get_absolute_url(self):
-        return reverse(
-            viewname="AutomationLog_Project_Sub_url", kwargs={"slug": self.slug}
-        )
+        return reverse(viewname="AutomationLog_Project_Sub_url", kwargs={"slug": self.slug})
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -105,21 +91,15 @@ class AutomationLog_Project_Sub(models.Model):
 
 
 class AutomationLog(models.Model):
-    record_text_title = models.CharField(
-        verbose_name="Заголовок записи", max_length=100
-    )
+    record_text_title = models.CharField(verbose_name="Заголовок записи", max_length=100)
 
-    record_text_description = models.CharField(
-        verbose_name="Короткий текст записи", max_length=100
-    )
+    record_text_description = models.CharField(verbose_name="Короткий текст записи", max_length=100)
 
     record_text_full = models.CharField(verbose_name="Текст записи", max_length=100)
 
     record_author = models.CharField(verbose_name="Автор записи", max_length=100)
     # file = models.FileField(verbose_name="Файл", upload_to='upload_file/')
-    record_data_create = models.DateTimeField(
-        verbose_name="Дата создания записи", auto_now=True
-    )
+    record_data_create = models.DateTimeField(verbose_name="Дата создания записи", auto_now=True)
     record_slug = models.SlugField(max_length=50, unique=True)
 
     record_object = models.ForeignKey(
@@ -165,9 +145,7 @@ class AutomationLog(models.Model):
 
     # Красивая хлебная крошка
     def __str__(self):
-        return (
-            f"[{self.record_author}] [{self.record_object}] [{self.record_data_create}]"
-        )
+        return f"[{self.record_author}] [{self.record_object}] [{self.record_data_create}]"
 
     class Meta:
         verbose_name = "Запись"
