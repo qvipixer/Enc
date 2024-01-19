@@ -1,23 +1,23 @@
 {% extends 'main/template_0.html' %}
 {% block upload %}
 <div class="container">
-    <form method="POST" action="/upload" enctype="multipart/form-data">
+    <form action="/upload" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Имя отправителя файла</label>
-            <input name="text" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Сюда имя отправителя файла</div>
+            <label class="form-label" for="exampleInputEmail1">Имя отправителя файла</label>
+            <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" name="text" type="text">
+            <div class="form-text" id="emailHelp">Сюда имя отправителя файла</div>
         </div>
         <div class="mb-3">
-            <label for="text_to_serv" class="form-label">Имя получателя файла</label>
-            <input name="text_to" type="text" class="form-control" id="text_to_serv" aria-describedby="text_to">
-            <div id="text_to" class="form-text">Сюда имя получателя файла</div>
+            <label class="form-label" for="text_to_serv">Имя получателя файла</label>
+            <input aria-describedby="text_to" class="form-control" id="text_to_serv" name="text_to" type="text">
+            <div class="form-text" id="text_to">Сюда имя получателя файла</div>
         </div>
         <div class="mb-3">
-            <label for="formFile" class="form-label">Файл</label>
-            <input name="file" class="form-control" type="file" id="formFile" multiple>
+            <label class="form-label" for="formFile">Файл</label>
+            <input class="form-control" id="formFile" multiple name="file" type="file">
         </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
+        <button class="btn btn-primary" type="submit">Отправить</button>
     </form>
 </div>
 {% endblock %}

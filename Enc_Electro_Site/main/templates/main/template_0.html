@@ -3,12 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href=" {% static 'css/bootstrap.min.css' %}">
+    <link href=" {% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <title>{% block title %} {{ title }} {% endblock %}</title>
 </head>
 <body>
 <div class="container">
-    <table border="2px" align="center" width="100%">
+    <table align="center" border="2px" width="100%">
         <tr align="center">
             <th></th>
             <th>
@@ -22,7 +22,7 @@
             </th>
             <th></th>
         </tr>
-                <tr align="center">
+        <tr align="center">
             <th></th>
             <th>
                 <nav><a href="/Automation_Log_View">Просмотр журнала</a></nav>
@@ -45,7 +45,7 @@
 
     {% block Automation_Log_View %} {% endblock %}
 
-    <div data-width="100%" align="center">
+    <div align="center" data-width="100%">
         <br>
         <h5>Carthago Delenda Est !</h5>
         <br>
