@@ -96,7 +96,10 @@ class AutomationLog(models.Model):
     record_text_description = models.CharField(verbose_name="Короткий текст записи", max_length=100)
 
     record_text_full = models.CharField(verbose_name="Текст записи", max_length=100)
-
+    record_text_full_plc = models.CharField(verbose_name="Текст записи PLC", max_length=100)
+    record_text_full_hmi = models.CharField(verbose_name="Текст записи HMI", max_length=100)
+    record_text_full_hmi_to_plc = models.CharField(verbose_name="Текст записи из HMI в PLC", max_length=100)
+    record_text_full_plc_to_hmi = models.CharField(verbose_name="Текст записи из PLC в HMI", max_length=100)
     record_author = models.CharField(verbose_name="Автор записи", max_length=100)
     # file = models.FileField(verbose_name="Файл", upload_to='upload_file/')
     record_data_create = models.DateTimeField(verbose_name="Дата создания записи", auto_now=True)
