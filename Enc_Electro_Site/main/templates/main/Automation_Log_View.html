@@ -1,5 +1,5 @@
 {% extends 'main/template_0.html' %}
-{% block Automation_Log_View %}
+{% block automation_log_view %}
 <table align="center" border="2px" width="100%">
     <tr>
         <th>Заголовок записи:</th>
@@ -10,7 +10,7 @@
 
 
     </tr>
-    {% for record in all_AutomationLog %}
+    {% for record in all_automation_log %}
     <tr>
         <td>
             <a href="/Automation_Log_View_Details?AutomationLog={{ record.get_absolute_url }}">

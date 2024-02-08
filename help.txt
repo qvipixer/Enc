@@ -1,0 +1,169 @@
+### Старт Django
+Старт Django
+django-admin startproject mysite
+
+создание нового приложения 
+cd mysite 
+py manage.py startapp myapp
+
+### Старт Django
+
+### Star server
+Для локального запуска
+py manage.py runserver
+Для доступа извне на сервере запускать так
+И на всякий пожарный поправить 'settings.py'
+py manage.py runserver 0.0.0.0:80
+http://127.0.0.1:8000/
+
+###
+
+### Старт Django
+django-admin startproject mysite
+### Старт Django
+
+###
+Как работает контроллер URLS
+###
+TechSpace\urls.py ->
+         \base.urls.py ->
+         \base.views.py
+
+py manage.py startapp base
+###
+
+
+###
+Как работает контроллер Шаблонизатор
+###
+templ0.html основной HTML содержит код
+{% block title %}{% endblock %}
+{% url 'home' %} ввыод ссылки из urls.py
+
+Остальные файлы
+Откуда наследовать шаблон
+{% extends 'base/templ0.html'%}
+Что выводить в прошитых блоках
+{% block title %}
+Главная TechSpace
+{% endblock %}
+{% block content %}
+<h4>Привет TechSpace<br>It`s Work!</h4>
+{% endblock %}
+
+Переборы циклом FOR
+###
+    {% for el in tasks %}
+        <div class="alert alert-warning mt-2">
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.task }}</p>
+        </div>
+    {% endfor %}
+
+el инкремент
+переменная tasks где перебираем (таблица 'Task')
+
+el.title В таблиице 'Task' индекс 'title' значение 'Уборка'
+el.task В таблиице 'Task' индекс 'task' значение 'Разобрать хлам'
+###
+
+###
+Сортировка вывода из ДБ
+###
+Сортировка вывода из ДБ
+Можно настроить в файле 'views.py' ->
+ Вводя переменну 'tasks = Task.objects.all()'->
+ меняя вызов функций  tasks = Task.objects.all()
+                      tasks = Task.objects.order_by('title') # сортировка по полю title
+                      tasks = Task.objects.order_by('id') # сортировка про полю id
+                      tasks = Task.objects.order_by('-id') # сортировка по полю id в обратном порядке
+                      tasks = Task.objects.order_by('id')[:1] # сортировка про полю id срезами [1] вывести один элемент
+###
+
+
+###
+Создание Моделей (Таблиц в БД)
+###
+class Task (models.Model):
+    title = models.CharField('Название', max_length=50)
+    task = models.TextField('Описание')
+
+    def __str__(self):
+        return self.title
+
+Название класса Это название таблицы
+переменные это её поля с типом хранимых в них данных
+
+название таблицы Task
+поля
+    title название 'Название' тип 'CharField' длина 'max_length=50'
+    task название 'Описание' тип 'TextField'
+###
+
+###
+Создание администратора
+###
+ python manage.py createsuperuser
+
+###
+Создание администратора
+###
+
+
+###
+Регистрация таблиц в панели администрирования
+###
+В Файле 'base/admin.py'->
+Импортируем из 'base/models.py' таблицу 'Task' ->
+    'from .models import Task' ->
+    После регестрируем
+    admin.site.register(Task)
+    Готово 'Task' появился в панели администрирования
+Изиенить название таблиц в панели администратора
+models.py
+Добавить класс в классе
+class Task (models.Model):
+    class Meta:
+        verbose_name = 'Задача' # Единственное число
+        verbose_name_ptural = 'Задачи' # Множественное число
+
+###
+
+
+###
+Начало миграции
+###
+Создаём первый файл миграции py manage.py makemigrations
+Запускаем миграцию py manage.py migrate
+###
+
+
+###
+Вход в админку
+###
+Создаём юзера 'admin'
+py manage.py createsuperuser
+###
+
+
+
+CSS
+HTML
+Bootstrap 4
+https://bootstrap-4.ru/docs/4.0/components/collapse/
+https://getbootstrap.com/docs/4.0/components/forms/
+
+
+Взять на заметку для разработки на Django полезно знать
+
+https://django.fun/docs/django/ru/3.0/intro/tutorial01/
+
+https://www.youtube.com/watch?v=6K83dgjkQNw&ab_channel=%D0%93%D0%BE%D1%88%D0%B0%D0%94%D1%83%D0%B4%D0%B0%D1%80%D1%8C
+
+https://django.fun/videos/praktika-programmirovaniya-na-python-3-lekciya-1/
+
+https://www.youtube.com/watch?time_continue=408&v=fgf57Sa5A-A&feature=emb_logo
+
+https://djangosimple.blogspot.com/2013/07/django.html
+
+https://pocoz.gitbooks.io/django-v-primerah/content/glava-7-sozdanie-internet-magazina/sozdanie-proekta-internet-magazina/sozdanie-predstavleniya-kataloga.html

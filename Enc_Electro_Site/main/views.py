@@ -5,15 +5,15 @@ from .models import AutomationLog
 
 
 # Create your views here.
-def Automation_Log_View(request):
-    all_AutomationLog = AutomationLog.objects.all()
-
+def automation_log_view(request):
+    all_automation_log = AutomationLog.objects.all()
+    print(all_automation_log)
     return render(
         request,
         template_name="main/Automation_Log_View.html",
         context={
             "title": "Просмотр журнала",
-            "all_AutomationLog": all_AutomationLog,
+            "all_automation_log": all_automation_log,
         },
     )
 
@@ -73,13 +73,9 @@ def download(request):
 
 
 def upload(request):
-    print(
-        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    )
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     print(request.META.get("REMOTE_ADDR"))
-    print(
-        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    )
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     if request.GET:
         print("!!! __GET__ !!!")
         print(request.META.get("REMOTE_ADDR"))
