@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</body>
-</html>
+{% extends 'template_0.html' %}
+{% block user_login %}
+<table align="center" border="2px" width="100%">
+    <tr align="center">
+        <div class="container">
+            <form method="POST" action="{% url 'login' %}" align="center">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Логин:</label>
+                    <input name="username" type="text" class="form-control" id="exampleInputEmail1"
+                           aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Логин можно получить у вашего автоматчика.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Пароль: </label>
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                    <div id="emailHelp!" class="form-text">Пароль можно получить у вашего автоматчика.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </tr>
+</table>
+{% endblock %}

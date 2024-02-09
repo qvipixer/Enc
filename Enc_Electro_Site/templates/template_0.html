@@ -14,9 +14,9 @@
              <th></th>
              <th></th>
              {% if request.user.is_authenticated %}
-                <th>Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}">Выйти</a></th>
+                <th>Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}"><button>Выйти</button></a></th>
              {% else %}
-                <th>Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a></th>
+                <th>Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}"><button>Войти</button></a></th>
              {% endif %}
              <th></th>
              <th></th>
@@ -52,6 +52,7 @@
     </table>
 </div>
 <div class="container">
+    {% block user_login %} {% endblock %}
 
     {% block download %} {% endblock %}
 
@@ -60,6 +61,7 @@
     {% block automation_log_view %} {% endblock %}
 
     {% block ASLogViewDetails %} {% endblock %}
+
 
     <div align="center" data-width="100%">
         <br>

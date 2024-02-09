@@ -15,7 +15,8 @@ def as_log_add(request):
 
 
 def as_log_view(request):
-    all_automation_log = ASLog.objects.all()
+    all_automation_log = ASLog.objects.order_by("-id")[:10]
+    # all_automation_log = ASLog.objects.all()
     # print(all_automation_log)
     return render(
         request,
