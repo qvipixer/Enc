@@ -6,12 +6,20 @@ from django.views.generic import DetailView
 
 
 # Create your views here.
-def as_log_view(request):
-    all_automation_log = ASLog.objects.all()
-    print(all_automation_log)
+def as_log_add(request):
     return render(
         request,
-        template_name="/as/log_view.html",
+        template_name="as/log/log_add.html",
+        context={"title": "Добавление в журнал"},
+    )
+
+
+def as_log_view(request):
+    all_automation_log = ASLog.objects.all()
+    # print(all_automation_log)
+    return render(
+        request,
+        template_name="as/log/log_view.html",
         context={
             "title": "Просмотр журнала",
             "all_automation_log": all_automation_log,
@@ -21,7 +29,7 @@ def as_log_view(request):
 
 class ASLogViewDetails(DetailView):
     model = ASLog
-    template_file = "/as/log_view_details.html"
+    template_file = "as/log/log_view_details.html"
     context_object_name = "log_view_details"
 
 
@@ -43,11 +51,3 @@ class ASLogViewDetails(DetailView):
 #             "all_AutomationLog_Details": all_AutomationLog_Details,
 #         },
 #     )
-
-
-def as_log_add(request):
-    return render(
-        request,
-        template_name="/as/log_add.html",
-        context={"title": "Добавление в журнал"},
-    )

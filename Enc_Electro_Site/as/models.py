@@ -91,6 +91,7 @@ class ASLog(models.Model):
     )
 
     record_text_full = models.CharField(verbose_name="Текст записи", max_length=100)
+
     record_text_full_plc = models.CharField(
         verbose_name="Текст записи PLC", max_length=100
     )

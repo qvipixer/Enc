@@ -13,6 +13,7 @@ from .models import (
 
 class ASLogAdmin(admin.ModelAdmin):
     prepopulated_fields = {"record_slug": ("record_text_title",)}
+    # prepopulated_fields = {"record_slug": ("id=" + "id" + " " + "record_text_title",)}
     pass
 
 

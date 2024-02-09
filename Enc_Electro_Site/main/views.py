@@ -24,33 +24,33 @@ def download(request):
     all_files = Myfiles.objects.all()
     return render(
         request,
-        template_name="main/download.html",
+        template_name="main/file/download.html",
         context={"all_files": all_files},
     )
 
 
 def upload(request):
-    print(
-        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    )
-    print(request.META.get("REMOTE_ADDR"))
-    print(
-        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    )
-    if request.GET:
-        print("!!! __GET__ !!!")
-        print(request.META.get("REMOTE_ADDR"))
-        print(request.GET)
-        print(request.POST)
-        print(request.FILES)
-        print("!!! __GET__ !!!")
+    # print(
+    #     "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    # )
+    # print(request.META.get("REMOTE_ADDR"))
+    # print(
+    #     "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    # )
+    # if request.GET:
+    # print("!!! __GET__ !!!")
+    # print(request.META.get("REMOTE_ADDR"))
+    # print(request.GET)
+    # print(request.POST)
+    # print(request.FILES)
+    # print("!!! __GET__ !!!")
 
     if request.POST:
-        print("!!! __POST__ !!!")
-        print(request.META.get("REMOTE_ADDR"))
-        print(request.POST)
-        print(request.FILES)
-        print("!!! __POST__ !!!")
+        # print("!!! __POST__ !!!")
+        # print(request.META.get("REMOTE_ADDR"))
+        # print(request.POST)
+        # print(request.FILES)
+        # print("!!! __POST__ !!!")
 
         Myfiles.objects.create(
             text=request.POST.get("text"),
@@ -62,6 +62,6 @@ def upload(request):
     # return render(request, 'upload.html')
     return render(
         request,
-        template_name="main/upload.html",
+        template_name="main/file/upload.html",
         context={"title": "Загрузка файлов"},
     )

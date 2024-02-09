@@ -1,35 +1,34 @@
-{% extends 'main/template_0.html' %}
-{% block Automation_Log_View_Details %}
-{% for details in all_AutomationLog_Details %}
+{% extends 'template_0.html' %}
+{% block ASLogViewDetails %}
+
 <table align="center" border="2px" width="100%">
     <tr>
         <th>Автор записи:</th>
-        <td>{{ details.record_author }}</td>
+        <td>{{ log_view_details.record_author }}</td>
     </tr>
     <tr>
         <th>Дата время создания:</th>
-        <td>{{ details.record_data_create }}</td>
+        <td>{{ log_view_details.record_data_create }}</td>
     </tr>
     <tr>
         <th>Объект:</th>
-        <td>{{ details.record_object }}</td>
+        <td>{{ log_view_details.record_object }}</td>
     </tr>
     <tr>
         <th>Текст записи:</th>
-        <td>{{ details.record_text_full }}</td>
+        <td>{{ log_view_details.record_text_full }}</td>
     </tr>
     <tr>
         <th>Электропомещение:</th>
-        <td>{{ details.record_object_sub }}</td>
+        <td>{{ log_view_details.record_object_sub }}</td>
     </tr>
     <tr>
         <th>Проект:</th>
-        <td>{{ details.record_project }}</td>
+        <td>{{ log_view_details.record_project }}</td>
     </tr>
     <tr>
         <th>Механизм:</th>
-        <td>{{ details.record_project_sub }}</td>
+        <td>{{ log_view_details.record_project_sub }}</td>
     </tr>
 </table>
-{% endfor %}
 {% endblock %}

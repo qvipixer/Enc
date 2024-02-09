@@ -1,4 +1,4 @@
-{% extends 'main/template_0.html' %}
+{% extends 'template_0.html' %}
 {% block automation_log_view %}
 <table align="center" border="2px" width="100%">
     <tr>
@@ -13,7 +13,7 @@
     {% for record in all_automation_log %}
     <tr>
         <td>
-            <a href="/Automation_Log_View_Details?AutomationLog={{ record.get_absolute_url }}">
+            <a href="{% url 'new_log_view_details' record.id %}">
                 {{record.record_text_title }}</a>
         </td>
         <td>{{ record.record_text_description }}</td>
