@@ -23,7 +23,9 @@ def file_download(request):
     # return render(request, 'download.html', context)
     # """
 
-    all_files = Myfiles.objects.all()
+    # all_files = Myfiles.objects.all()
+    all_files = Myfiles.objects.order_by("-id")[:10]
+
     return render(
         request,
         template_name="main/file/download.html",

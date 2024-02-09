@@ -11,26 +11,26 @@
 <div class="container">
     <table align="center" border="2px" width="100%">
          <tr align="center">
-             <th></th>
-             <th></th>
+             <th><button></button></th>
+             <th><button></button></th>
              {% if request.user.is_authenticated %}
                 <th>Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}"><button>Выйти</button></a></th>
              {% else %}
                 <th>Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}"><button>Войти</button></a></th>
              {% endif %}
-             <th></th>
-             <th></th>
+             <th><button></button></th>
+             <th><button></button></th>
          </tr>
         <tr align="center">
             <th></th>
             <th>
-                <nav><a href="{% url 'upload' %}">Загрузить файлы</a></nav>
+                <nav><a href="{% url 'upload' %}"><button>Загрузить файлы</button></a></nav>
             </th>
             <th>
-                <nav><a href="{% url 'main_page' %}">Главная</a></nav>
+                <nav><a href="{% url 'main_page' %}"><button>Главная</button></a></nav>
             </th>
             <th>
-                <nav><a href="{% url 'download' %}">Скачать файлы</a></nav>
+                <nav><a href="{% url 'download' %}"><button>Скачать файлы</button></a></nav>
             </th>
             <th></th>
         </tr>
@@ -38,13 +38,13 @@
             <th></th>
 
             <th>
-                <nav><a href="{% url 'as_log_view' %}">Просмотр журнала</a></nav>
+                <nav><a href="{% url 'as_log_view' %}"><button>Просмотр журнала</button></a></nav>
             </th>
             <th>
-                <nav><a href="{% url 'main_page' %}">Главная</a></nav>
+                <nav><a href="{% url 'main_page' %}"><button>Главная</button></a></nav>
             </th>
             <th>
-                <nav><a href="{% url 'as_log_add' %}">Добавление в журнал</a></nav>
+                <nav><a href="{% url 'as_log_add' %}"><button>Добавление в журнал</button></a></nav>
             </th>
 
             <th></th>
