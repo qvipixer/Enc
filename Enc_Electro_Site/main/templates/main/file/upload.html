@@ -5,7 +5,8 @@
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label" for="exampleInputEmail1">Имя отправителя файла</label>
-            <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" name="text" type="text">
+            <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" name="text" type="text"
+                   value="{{ aut_user }}">
             <div class="form-text" id="emailHelp">Сюда имя отправителя файла</div>
         </div>
         <div class="mb-3">

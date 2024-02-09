@@ -3,9 +3,13 @@ from django.urls import path
 from .views import download
 from .views import page
 from .views import upload
+from .views import user_login
+from .views import user_logout
 
 urlpatterns = [
-    path("", page),
+    path("", page, name="main_page"),
     path("upload", upload),
     path("download", download),
+    path("login/", user_login, name="login"),
+    path("logout/", user_logout, name="logout"),
 ]

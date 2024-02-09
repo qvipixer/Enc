@@ -7,8 +7,20 @@
     <title>{% block title %} {{ title }} {% endblock %}</title>
 </head>
 <body>
+
 <div class="container">
     <table align="center" border="2px" width="100%">
+         <tr align="center">
+             <th></th>
+             <th></th>
+             {% if request.user.is_authenticated %}
+                <th>Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}">Выйти</a></th>
+             {% else %}
+                <th>Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a></th>
+             {% endif %}
+             <th></th>
+             <th></th>
+         </tr>
         <tr align="center">
             <th></th>
             <th>
