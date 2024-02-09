@@ -1,7 +1,7 @@
 {% extends 'template_0.html' %}
 {% block upload %}
 <div class="container">
-    <form action="/upload" enctype="multipart/form-data" method="POST">
+    <form action="{% url 'upload' %}" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label" for="exampleInputEmail1">Имя отправителя файла</label>
