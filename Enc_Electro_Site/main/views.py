@@ -1,49 +1,6 @@
 from django.shortcuts import render
 
 from .models import Myfiles
-from .models import AutomationLog
-
-
-# Create your views here.
-def automation_log_view(request):
-    all_automation_log = AutomationLog.objects.all()
-    print(all_automation_log)
-    return render(
-        request,
-        template_name="main/Automation_Log_View.html",
-        context={
-            "title": "Просмотр журнала",
-            "all_automation_log": all_automation_log,
-        },
-    )
-
-
-def Automation_Log_View_Details(request):
-    all_AutomationLog_Details = AutomationLog.objects.all()
-    all_AutomationLog = request.GET.get("Automation_Log_View")  # GET переменная
-    print()
-    print("all_AutomationLog_Details")
-    print(all_AutomationLog_Details)
-    print()
-    print("all_AutomationLog")
-    print(all_AutomationLog)
-    return render(
-        request,
-        template_name="main/Automation_Log_View_Details.html",
-        context={
-            "title": "Подробно об ",
-            "all_AutomationLog": all_AutomationLog,
-            "all_AutomationLog_Details": all_AutomationLog_Details,
-        },
-    )
-
-
-def Automation_Log_Add(request):
-    return render(
-        request,
-        template_name="main/Automation_Log_Add.html",
-        context={"title": "Добавление в журнал"},
-    )
 
 
 def page(request):
@@ -73,9 +30,13 @@ def download(request):
 
 
 def upload(request):
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print(
+        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    )
     print(request.META.get("REMOTE_ADDR"))
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print(
+        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    )
     if request.GET:
         print("!!! __GET__ !!!")
         print(request.META.get("REMOTE_ADDR"))
