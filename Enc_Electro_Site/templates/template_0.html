@@ -24,13 +24,13 @@
         <tr align="center">
             <th></th>
             <th>
-                <nav><a href="/upload">Загрузить файлы</a></nav>
+                <nav><a href="{% url 'upload' %}">Загрузить файлы</a></nav>
             </th>
             <th>
-                <nav><a href="/">Главная</a></nav>
+                <nav><a href="{% url 'main_page' %}">Главная</a></nav>
             </th>
             <th>
-                <nav><a href="/download">Скачать файлы</a></nav>
+                <nav><a href="{% url 'download' %}">Скачать файлы</a></nav>
             </th>
             <th></th>
         </tr>
@@ -38,13 +38,13 @@
             <th></th>
 
             <th>
-                <nav><a href="/as/as_log_view">Просмотр журнала</a></nav>
+                <nav><a href="{% url 'as_log_view' %}">Просмотр журнала</a></nav>
             </th>
             <th>
-                <nav><a href="/">Главная</a></nav>
+                <nav><a href="{% url 'main_page' %}">Главная</a></nav>
             </th>
             <th>
-                <nav><a href="/as/as_log_add">Добавление в журнал</a></nav>
+                <nav><a href="{% url 'as_log_add' %}">Добавление в журнал</a></nav>
             </th>
 
             <th></th>

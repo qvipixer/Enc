@@ -13,7 +13,7 @@ def page(request):
     )
 
 
-def download(request):
+def file_download(request):
     # """
     # all_files = Myfiles.objects.all()
     # context = {
@@ -31,7 +31,7 @@ def download(request):
     )
 
 
-def upload(request):
+def file_upload(request):
     # print(
     #     "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     # )
