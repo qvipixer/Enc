@@ -29,7 +29,9 @@ def file_download(request):
     return render(
         request,
         template_name="main/file/download.html",
-        context={"all_files": all_files},
+        context={"all_files": all_files,
+                 "title": 'Скачать файлы'
+                 },
     )
 
 

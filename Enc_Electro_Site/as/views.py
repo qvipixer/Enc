@@ -2,15 +2,20 @@ from django.shortcuts import render
 from .models import ASLog
 from django.views.generic import DetailView
 
+
 # Create your views here.
 
 
 # Create your views here.
 def as_log_add(request):
+    all_automation_categories = ASLog.objects.all()
     return render(
         request,
         template_name="as/log/log_add.html",
-        context={"title": "Добавление в журнал"},
+        context={
+            "title": "Добавление в журнал",
+            "all_automation_categories": "all_automation_categories",
+        },
     )
 
 
@@ -30,7 +35,7 @@ def as_log_view(request):
 
 class ASLogViewDetails(DetailView):
     model = ASLog
-    template_file = "as/log/log_view_details.html"
+    # template_file = "as/log/log_view_details.html"
     context_object_name = "log_view_details"
 
 
