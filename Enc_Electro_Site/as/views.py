@@ -21,10 +21,30 @@ def as_log_add(request):
     if request.POST:
         # ASLog
         print("!!! __POST__ !!!")
-        print(request.META.get("REMOTE_ADDR"))
+        # print(request.META.get("REMOTE_ADDR"))
         print(request.POST)
-        print(request.FILES)
+        # print(request.FILES)
         print("!!! __POST__ !!!")
+
+        # <QueryDict:
+        # {
+        # 'csrfmiddlewaretoken': ['tNEmUvq2qwIea9mz3NBIgV19bX1oZ95VMYJe18Ha10fBC1vBRZHJ3XkXT5OASt7S'],
+        # 'text_to_record_text_title': [''],
+        # 'record_change_location_plc': ['on'],
+        # 'record_change_location_hmi': ['on'],
+        # 'record_object': ['el.title'],
+        # 'record_electrical_room': ['el.title'],
+        # 'record_project': ['el.title'],
+        # 'record_mechanism': ['el.title']
+        # }
+        # >
+
+        ASLog.objects.create(
+            text=request.POST.get("text"),
+            text_to=request.POST.get("text_to"),
+            file=request.FILES.get("file"),
+            remote_ip=request.META.get("REMOTE_ADDR"),
+        )
 
     return render(
         request,
