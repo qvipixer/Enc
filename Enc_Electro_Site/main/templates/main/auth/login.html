@@ -3,20 +3,20 @@
 <table align="center" border="2px" width="100%">
     <tr align="center">
         <div class="container">
-            <form method="POST" action="{% url 'login' %}" align="center">
+            <form action="{% url 'login' %}" align="center" method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Логин:</label>
-                    <input name="username" type="text" class="form-control" id="exampleInputEmail1"
-                           aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Логин можно получить у вашего автоматчика.</div>
+                    <label class="form-label" for="exampleInputEmail1">Логин:</label>
+                    <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" name="username"
+                           type="text">
+                    <div class="form-text" id="emailHelp">Логин можно получить у вашего автоматчика.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Пароль: </label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-                    <div id="emailHelp!" class="form-text">Пароль можно получить у вашего автоматчика.</div>
+                    <label class="form-label" for="exampleInputPassword1">Пароль: </label>
+                    <input class="form-control" id="exampleInputPassword1" name="password" type="password">
+                    <div class="form-text" id="emailHelp!">Пароль можно получить у вашего автоматчика.</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Войти</button>
+                <button class="btn btn-primary" type="submit">Войти</button>
             </form>
         </div>
     </tr>
