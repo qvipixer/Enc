@@ -1,25 +1,71 @@
 {% extends 'template_0.html' %}
 {% block automation_log_add %}
-{% for el in all_automation_categories %}
-    {{ el.record_object }}
-    {{ el.record_object_sub }}
-    {{ el.record_object }}
-    {{ el.record_object }}
-    {{ el.record_object }}
-{% endfor %}
+<div class="form-control">
+    <div class="container">
+        <form action="{% url 'as_log_add' %}" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
 
-{{ all_automation_categories.record_object }}
+            <div class="mb-3">
+                <label class="form-label" for="text_to_serv">Заголовок</label>
+                <input aria-describedby="text_to" class="form-control" id="text_to_serv" name="text_to" type="text">
+                <div class="form-text" id="text_to">Сюда Заголовок</div>
+            </div>
 
-<div class="input-group mb-3">
-    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-        <ul class="dropdown-menu" style="">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
-    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Текст записи</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <div class="form-text" id="text_to">Сюда Текст записи</div>
+            </div>
+
+            <!--
+            <div class="mb-3">
+                <label class="form-label" for="text_to_serv">Текст записи</label>
+                <textarea rows="10" cols="45" name="text"></textarea>
+                <input aria-describedby="text_to" class="form-control" id="text_to_serv" name="text_to" type="text">
+                <div class="form-text" id="text_to">Сюда Текст записи</div>
+            </div>
+            -->
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Изменение в PLC</label>
+            </div>
+            
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                <label class="form-check-label" for="flexSwitchCheckChecked">>Изменение в HMI</label>
+            </div>
+
+            <select name="user_profile_color_1">
+                {% for el in all_enc_object %}
+                <option class="dropdown-item" value="el.title">{{ el.title_description }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="user_profile_color_1">
+                {% for el in all_enc_project %}
+                <option value="el.title">{{ el.title_description }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="user_profile_color_1">
+                {% for el in all_enc_electrical_room %}
+                <option value="el.title">{{ el.title_description }}</option>
+                {% endfor %}
+            </select>
+
+
+            <select name="user_profile_color_1">
+                {% for el in all_enc_mechanism %}
+                <option value="el.title">{{ el.title_description }}</option>
+                {% endfor %}
+            </select>
+
+
+            <button class="btn btn-primary" type="submit">Отправить</button>
+        </form>
+    </div>
 </div>
+
 
 {% endblock %}

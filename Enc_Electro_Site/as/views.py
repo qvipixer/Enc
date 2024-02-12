@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from .models import ASLog
+
+from .models import ASLog, EncObject, EncProject, EncElectricalRoom, EncMechanism
+
 from django.views.generic import DetailView
 
+as_log_records_count = ASLog.objects.count()
 
 # Create your views here.
 
@@ -9,12 +12,31 @@ from django.views.generic import DetailView
 # Create your views here.
 def as_log_add(request):
     all_automation_categories = ASLog.objects.all()
+    all_enc_object = EncObject.objects.all()
+    all_enc_project = EncProject.objects.all()
+    all_enc_electrical_room = EncElectricalRoom.objects.all()
+    all_enc_mechanism = EncMechanism.objects.all()
+
+    # print(all_enc_object.count())
+    if request.POST:
+        # ASLog
+        print("!!! __POST__ !!!")
+        print(request.META.get("REMOTE_ADDR"))
+        print(request.POST)
+        print(request.FILES)
+        print("!!! __POST__ !!!")
+
     return render(
         request,
         template_name="as/log/log_add.html",
         context={
             "title": "Добавление в журнал",
-            "all_automation_categories": "all_automation_categories",
+            "all_automation_categories": all_automation_categories,
+            "all_enc_object": all_enc_object,
+            "all_enc_project": all_enc_project,
+            "all_enc_electrical_room": all_enc_electrical_room,
+            "all_enc_mechanism": all_enc_mechanism,
+            "as_log_records_count": as_log_records_count,
         },
     )
 
@@ -29,6 +51,7 @@ def as_log_view(request):
         context={
             "title": "Просмотр журнала",
             "all_automation_log": all_automation_log,
+            "as_log_records_count": as_log_records_count,
         },
     )
 

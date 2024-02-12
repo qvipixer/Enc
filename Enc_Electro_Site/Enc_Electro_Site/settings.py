@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     "main",
     "as",
+    "Enc_object",
 ]
 
 MIDDLEWARE = [

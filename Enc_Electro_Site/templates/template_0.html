@@ -56,14 +56,25 @@
                 <nav><a href="{% url 'main_page' %}">Главная</a></nav>
             </th>
             <th>
-                <nav><a href="{% url 'download' %}">Скачать файлы</a></nav>
+                <nav>
+                    <a href="{% url 'download' %}">
+                        <button type="button" class="btn btn-primary">Скачать файлы
+                        <span class="badge text-bg-secondary">{{ files_count }}</span>
+                        </button>
+                    </a></nav>
             </th>
             <th></th>
         </tr>
         <tr align="center">
             <th></th>
             <th>
-                <nav><a href="{% url 'as_log_view' %}">Просмотр журнала</a></nav>
+
+                <a href="{% url 'as_log_view' %}">
+                    <button type="button" class="btn btn-primary">Просмотр журнала
+                    <span class="badge text-bg-secondary">4</span>
+                </button>
+                </a>
+                <!--<nav><a href="{% url 'as_log_view' %}">Просмотр журнала</nav>-->
             </th>
             <th>
                 <nav><a href="{% url 'main_page' %}">Главная</a></nav>
@@ -90,16 +101,20 @@
 
 
     <div align="center" data-width="100%">
-        <br>
-        <h5>Carthago Delenda Est !</h5>
-        <br>
-        <h4>Carthago Delenda Est !</h4>
-        <br>
-        <h3>Carthago Delenda Est !</h3>
-        <br>
-        <h2>Carthago Delenda Est !</h2>
-        <br>
-        <h1>Carthago Delenda Est !</h1>
+
+        <h6>Carthago Delenda <span class="badge bg-secondary">Est !</span></h6>
+        <h5>Carthago Delenda <span class="badge bg-secondary">Est !</span></h5>
+        <h4>Carthago Delenda <span class="badge bg-secondary">Est !</span></h4>
+        <h3>Carthago Delenda <span class="badge bg-secondary">Est !</span></h3>
+        <h2>Carthago Delenda <span class="badge bg-secondary">Est !</span></h2>
+
+        <h1>Carthago Delenda <span class="badge bg-secondary">Est !</span></h1>
+        <h2>Carthago Delenda <span class="badge bg-secondary">Est !</span></h2>
+        <h3>Carthago Delenda <span class="badge bg-secondary">Est !</span></h3>
+        <h4>Carthago Delenda <span class="badge bg-secondary">Est !</span></h4>
+        <h5>Carthago Delenda <span class="badge bg-secondary">Est !</span></h5>
+        <h6>Carthago Delenda <span class="badge bg-secondary">Est !</span></h6>
+
     </div>
 </div>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
