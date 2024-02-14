@@ -17,13 +17,9 @@ def as_log_add(request):
     all_enc_electrical_room = EncElectricalRoom.objects.all()
     all_enc_mechanism = EncMechanism.objects.all()
 
-    # print(all_enc_object.count())
     if request.POST:
-        # ASLog
         print("!!! __POST__ !!!")
-        # print(request.META.get("REMOTE_ADDR"))
         print(request.POST)
-        # print(request.FILES)
         print("!!! __POST__ !!!")
 
         # <QueryDict:
@@ -40,10 +36,16 @@ def as_log_add(request):
         # >
 
         ASLog.objects.create(
-            text=request.POST.get("text"),
-            text_to=request.POST.get("text_to"),
-            file=request.FILES.get("file"),
-            remote_ip=request.META.get("REMOTE_ADDR"),
+            record_author=request.POST.get("record_author"),
+            record_text_title=request.POST.get("record_text_title"),
+            record_text_full=request.POST.get("record_text_full"),
+            record_change_location_plc=request.POST.get("record_change_location_plc"),
+            record_change_location_hmi=request.POST.get("record_change_location_hmi"),
+            record_object=request.POST.get("record_object"),
+            record_electrical_room=request.POST.get("record_electrical_room"),
+            record_project=request.POST.get("record_project"),
+            record_mechanism=request.POST.get("record_mechanism"),
+            record_data_create=request.POST.get("record_data_create"),
         )
 
     return render(
