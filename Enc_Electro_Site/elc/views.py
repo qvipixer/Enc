@@ -33,13 +33,13 @@ def elc_log_add(request):
             post.record_author = request.user
             post.record_data_create = timezone.now()
             post.save()
-            return redirect("new_log_view_details", pk=post.pk)
+            return redirect(to="new_log_elc_view_details", pk=post.pk)
     else:
-        as_log_add_form = ElcLogAddForm()
+        elc_log_add_form = ElcLogAddForm()
     return render(
         request,
-        "elc/log/log_add.html",
-        {
+        template_name="elc/log/log_add.html",
+        context={
             "elc_log_add_form": elc_log_add_form,
             "title": "Добавление в журнал",
         },
