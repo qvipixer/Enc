@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="ASLog",
+            name="ElcLog",
             fields=[
                 (
                     "id",
@@ -37,14 +37,6 @@ class Migration(migrations.Migration):
                     models.CharField(max_length=100, verbose_name="Автор записи"),
                 ),
                 (
-                    "record_change_location_plc",
-                    models.CharField(max_length=100, verbose_name="Изменение в PLC"),
-                ),
-                (
-                    "record_change_location_hmi",
-                    models.CharField(max_length=100, verbose_name="Изменение в HMI"),
-                ),
-                (
                     "record_data_create",
                     models.DateTimeField(
                         auto_now=True, verbose_name="Дата создания записи"
@@ -55,7 +47,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         blank=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="as_log_electrical_room",
+                        related_name="elc_log_electrical_room",
                         to="Enc_object.encelectricalroom",
                         verbose_name="Электропомещение",
                     ),
@@ -65,7 +57,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         blank=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="as_log_mechanism",
+                        related_name="elc_log_mechanism",
                         to="Enc_object.encmechanism",
                         verbose_name="Механизм",
                     ),
@@ -75,25 +67,15 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         blank=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="as_log_object",
+                        related_name="elc_log_object",
                         to="Enc_object.encobject",
                         verbose_name="Объект",
                     ),
                 ),
-                (
-                    "record_project",
-                    models.ForeignKey(
-                        blank=True,
-                        on_delete=django.db.models.deletion.CASCADE,
-                        related_name="as_log_project",
-                        to="Enc_object.encproject",
-                        verbose_name="Проект",
-                    ),
-                ),
             ],
             options={
-                "verbose_name": "Запись Simatic",
-                "verbose_name_plural": "Записи Simatic",
+                "verbose_name": "Запись Элекриков",
+                "verbose_name_plural": "Записи Элекриков",
             },
         ),
     ]
