@@ -22,18 +22,9 @@ def page(request):
 
 
 def file_download(request):
-    # """
-    # all_files = Myfiles.objects.all()
-    # context = {
-    #     'all_files': all_files
-    # }
-    #
-    # return render(request, 'download.html', context)
-    # """
 
-    # all_files = Myfiles.objects.all()
     all_files = Myfiles.objects.order_by("-id")[:10]
-    # files_count = Myfiles.objects.count()
+
     return render(
         request,
         template_name="main/file/download.html",

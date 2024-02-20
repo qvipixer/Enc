@@ -1,5 +1,9 @@
+from datetime import date
+
 from django.db import models
 from django.shortcuts import reverse
+
+current_date = date.today()
 
 
 # Create your models here.
@@ -9,7 +13,9 @@ class Myfiles(models.Model):
     remote_ip = models.GenericIPAddressField(
         verbose_name="IP адрес отправителя файла",
     )
-    file = models.FileField(verbose_name="Файл", upload_to="upload_file/")
+    file = models.FileField(
+        verbose_name="Файл", upload_to="upload_file/" + str(current_date) + "/"
+    )
     data_create = models.DateTimeField(
         verbose_name="Дата загрузки файла", auto_now=True
     )
