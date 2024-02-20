@@ -1,5 +1,6 @@
 {% extends 'template_0.html' %}
-{% block ASLogViewDetails %}
+{% block title %} {{ log_view_details.record_text_title }} {% endblock %}
+{% block ElcLogViewDetails %}
 
 <table align="center" border="2px" width="100%">
     <tr>
@@ -20,15 +21,15 @@
     </tr>
     <tr>
         <th>Электропомещение:</th>
-        <td>{{ log_view_details.record_object_sub }}</td>
+        <td>{{ log_view_details.record_electrical_room }}</td>
     </tr>
     <tr>
         <th>Проект:</th>
-        <td>{{ log_view_details.record_project }}</td>
+        <td></td>
     </tr>
     <tr>
         <th>Механизм:</th>
-        <td>{{ log_view_details.record_project_sub }}</td>
+        <td>{{ log_view_details.record_mechanism }}</td>
     </tr>
 </table>
 {% endblock %}

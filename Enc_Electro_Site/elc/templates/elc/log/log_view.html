@@ -1,5 +1,5 @@
 {% extends 'template_0.html' %}
-{% block automation_log_view %}
+{% block electrical_log_view %}
 <table align="center" border="2px" width="100%">
     <tr>
         <th>Заголовок записи:</th>
@@ -10,7 +10,7 @@
 
 
     </tr>
-    {% for record in all_automation_log %}
+    {% for record in all_electrical_log %}
     <tr>
         <td>
             <a href="{% url 'new_as_log_view_details' record.id %}" target="_blank">

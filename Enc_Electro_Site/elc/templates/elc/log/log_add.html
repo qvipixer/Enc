@@ -1,10 +1,10 @@
 {% extends 'template_0.html' %}
-{% block automation_log_add %}
+{% block electrical_log_add %}
 <div class="form-control">
     <div class="container">
-        <form action="{% url 'as_log_add' %}" enctype="multipart/form-data" method="POST">{% csrf_token %}
+        <form action="{% url 'elc_log_add' %}" enctype="multipart/form-data" method="POST">{% csrf_token %}
 
-            {{ as_log_add_form.as_p }}
+            {{ elc_log_add_form.as_p }}
             <button class="btn btn-primary" type="submit">Отправить</button>
         </form>
     </div>

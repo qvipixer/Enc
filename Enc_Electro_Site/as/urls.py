@@ -10,6 +10,6 @@ urlpatterns = [
     path(
         "as_log_view/details/log/<int:pk>",
         views.ASLogViewDetails.as_view(),
-        name="new_log_view_details",
+        name="new_as_log_view_details",
     ),
 ]

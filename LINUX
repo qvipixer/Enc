@@ -1,10 +1,19 @@
+Редактирование  файла конфига сервиса
 sudo nano /etc/systemd/system/EncLoger.service
 
+Перезапуск всех сервисов
+sudo systemctl daemon-reload
 
+Запуск сервиса
+sudo systemctl start EncLoger.service
 
+Статус сервиса
+sudo systemctl status EncLoger.service
 
+Если всё ок, то добавить сервис в автозапуск
+sudo systemctl enable EncLoger.service
 
-
+Текущий конфиг сервиса
 
 
 [Unit]
@@ -15,17 +24,13 @@ After=network.target
 Type=simple
 User=dev
 Group=dev
-ExecStart=/usr/bin/python3 /home/dev/Enc/Enc_Electro_Site/manage.py runserver 0.0.0.0:8080
-WorkingDirectory=/home/dev/Enc/Enc_Electro_Site
+ExecStart=/usr/bin/python3 /home/dev/git_prj/Enc/Enc_Electro_Site/manage.py runserver 0.0.0.0:8080
+WorkingDirectory=/home/dev/git_prj/Enc/Enc_Electro_Site
 Restart=always
 RestartSec=5
 
-
 [Install]
 WantedBy=network.target
-
-
-
 
 
 

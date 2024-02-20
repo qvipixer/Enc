@@ -6,19 +6,17 @@ from Enc_object.models import EncObject, EncElectricalRoom, EncProject, EncMecha
 # Create your models here.
 
 
-class ASLog(models.Model):
+class ElcLog(models.Model):
     record_text_title = models.CharField(
         verbose_name="Заголовок записи", max_length=100
     )
 
-    record_text_full = models.CharField(verbose_name="Текст записи", max_length=9999)
-
+    record_text_full = models.TextField(verbose_name="Текст записи", max_length=9999)
     record_author = models.CharField(verbose_name="Автор записи", max_length=100)
 
     record_data_create = models.DateTimeField(
         verbose_name="Дата создания записи", auto_now=True
     )
-    record_slug = models.SlugField(max_length=50, unique=True)
 
     record_object = models.ForeignKey(
         EncObject,
@@ -43,15 +41,6 @@ class ASLog(models.Model):
         blank=True,
         verbose_name="Механизм",
     )
-    """
-    def get_absolute_url(self):
-        return reverse(
-            viewname="AS_record_url", kwargs={"record_slug": self.record_slug}
-        )
-    """
-
-    def get_absolute_url(self):
-        return self.record_slug
 
     # Красивая хлебная крошка
     def __str__(self):
@@ -60,5 +49,5 @@ class ASLog(models.Model):
         )
 
     class Meta:
-        verbose_name = "Запись"
-        verbose_name_plural = "Записи"
+        verbose_name = "Запись Элекриков"
+        verbose_name_plural = "Записи Элекриков"
