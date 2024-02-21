@@ -16,7 +16,6 @@ as_log_records_count = ASLog.objects.count()
 # Create your views here.
 
 
-# Create your views here.
 def as_log_add(request):
     all_automation_categories = ASLog.objects.all()
     all_enc_object = EncObject.objects.all()
@@ -57,20 +56,20 @@ def as_log_add(request):
     #         record_mechanism=request.POST.get("record_mechanism"),
     #     )
 
-    if request.method == "POST":
+    if request.POST:
         as_log_add_form = AsLogAddForm(request.POST)
         if as_log_add_form.is_valid():
             post = as_log_add_form.save(commit=False)
             post.record_author = request.user
             post.record_data_create = timezone.now()
             post.save()
-            return redirect("new_as_log_view_details", pk=post.pk)
+            return redirect(to="new_as_log_view_details", pk=post.pk)
     else:
         as_log_add_form = AsLogAddForm()
     return render(
         request,
-        "as/log/log_add.html",
-        {
+        template_name="as/log/log_add.html",
+        context={
             "as_log_add_form": as_log_add_form,
             "title": "Добавление в журнал",
         },
