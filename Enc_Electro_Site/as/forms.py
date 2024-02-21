@@ -4,9 +4,6 @@ from .models import ASLog
 
 
 class AsLogAddForm(forms.ModelForm):
-    record_change_location_plc = forms.CharField()
-    record_text_full = forms.Textarea()
-
     class Meta:
         model = ASLog
         fields = (

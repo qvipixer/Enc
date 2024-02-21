@@ -13,8 +13,6 @@ from django.utils import timezone
 
 elc_log_records_count = ElcLog.objects.count()
 
-# Create your views here.
-
 
 # Create your views here.
 def elc_log_add(request):
@@ -26,7 +24,7 @@ def elc_log_add(request):
 
     elc_log_add_form = ElcLogAddForm(request.POST)
 
-    if request.method == "POST":
+    if request.POST:
         elc_log_add_form = ElcLogAddForm(request.POST)
         if elc_log_add_form.is_valid():
             post = elc_log_add_form.save(commit=False)
@@ -42,6 +40,11 @@ def elc_log_add(request):
         context={
             "elc_log_add_form": elc_log_add_form,
             "title": "Добавление в журнал",
+            "all_electrical_categories": all_electrical_categories,
+            "all_enc_object": all_enc_object,
+            "all_enc_project": all_enc_project,
+            "all_enc_electrical_room": all_enc_electrical_room,
+            "all_enc_mechanism": all_enc_mechanism,
         },
     )
 

@@ -13,12 +13,13 @@ class ASLog(models.Model):
 
     record_text_full = models.TextField(verbose_name="Текст записи", max_length=9999)
     record_author = models.CharField(verbose_name="Автор записи", max_length=100)
-    record_change_location_plc = models.CharField(
-        verbose_name="Изменение в PLC", max_length=100
+
+    record_change_location_plc = models.BooleanField(
+        verbose_name="Изменение в PLC", default=False
     )
 
-    record_change_location_hmi = models.CharField(
-        verbose_name="Изменение в HMI", max_length=100
+    record_change_location_hmi = models.BooleanField(
+        verbose_name="Изменение в HMI", default=False
     )
 
     record_data_create = models.DateTimeField(
