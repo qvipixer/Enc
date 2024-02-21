@@ -33,7 +33,7 @@ def elc_log_add(request):
             post.record_author = request.user
             post.record_data_create = timezone.now()
             post.save()
-            return redirect(to="new_log_elc_view_details", pk=post.pk)
+            return redirect(to="new_elc_log_view_details", pk=post.pk)
     else:
         elc_log_add_form = ElcLogAddForm()
     return render(
