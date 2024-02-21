@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from .models import Myfiles
 
-files_count = Myfiles.objects.count()
-
 
 def page(request):
     print(request.user)
@@ -15,14 +13,12 @@ def page(request):
         template_name="main/index.html",
         context={
             "title": "Главная страница",
-            "files_count": files_count,
             "aut_user": request.user,
         },
     )
 
 
 def file_download(request):
-
     all_files = Myfiles.objects.order_by("-id")[:10]
 
     return render(
@@ -30,7 +26,6 @@ def file_download(request):
         template_name="main/file/download.html",
         context={
             "all_files": all_files,
-            "files_count": files_count,
             "title": "Скачать файлы",
         },
     )
@@ -72,7 +67,6 @@ def file_upload(request):
         template_name="main/file/upload.html",
         context={
             "title": "Загрузка файлов",
-            "files_count": files_count,
             "aut_user": request.user,
         },
     )

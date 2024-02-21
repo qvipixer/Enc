@@ -11,8 +11,6 @@ from .forms import ElcLogAddForm
 from django.shortcuts import redirect
 from django.utils import timezone
 
-elc_log_records_count = ElcLog.objects.count()
-
 
 # Create your views here.
 def elc_log_add(request):
@@ -58,7 +56,6 @@ def elc_log_view(request):
         context={
             "title": "Просмотр журнала",
             "all_electrical_log": all_electrical_log,
-            "elc_log_records_count": elc_log_records_count,
         },
     )
 

@@ -11,7 +11,6 @@ from .forms import AsLogAddForm
 from django.shortcuts import redirect
 from django.utils import timezone
 
-as_log_records_count = ASLog.objects.count()
 
 # Create your views here.
 
@@ -63,7 +62,6 @@ def as_log_view(request):
         context={
             "title": "Просмотр журнала",
             "all_automation_log": all_automation_log,
-            "as_log_records_count": as_log_records_count,
         },
     )
 

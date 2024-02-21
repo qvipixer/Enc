@@ -91,6 +91,58 @@
   </div>
 </nav>
 <div class="container">
+    <!--
+    <table align="center" border="2px" width="100%">
+        <tr align="center">
+            <th></th>
+            <th></th>
+            {% if request.user.is_authenticated %}
+            <th>Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}">Выйти</a>
+            </th>
+            {% else %}
+            <th>Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a></th>
+            {% endif %}
+            <th></th>
+            <th></th>
+        </tr>
+        <tr align="center">
+            <th></th>
+            <th>
+                <nav><a href="{% url 'upload' %}">Загрузить файлы</a></nav>
+            </th>
+            <th>
+                <nav><a href="{% url 'main_page' %}">Главная</a></nav>
+            </th>
+            <th>
+                <nav>
+                    <a href="{% url 'download' %}">
+                        <button class="btn btn-primary" type="button">Скачать файлы
+                            <span class="badge text-bg-secondary">{{ files_count }}</span>
+                        </button>
+                    </a></nav>
+            </th>
+            <th></th>
+        </tr>
+        <tr align="center">
+            <th></th>
+            <th>
+
+                <a href="{% url 'as_log_view' %}">
+                    <button class="btn btn-primary" type="button">Просмотр журнала
+                        <span class="badge text-bg-secondary">4</span>
+                    </button>
+                </a>
+            </th>
+            <th>
+                <nav><a href="{% url 'main_page' %}">Главная</a></nav>
+            </th>
+            <th>
+                <nav><a href="{% url 'as_log_add' %}">Добавление в журнал</a></nav>
+            </th>
+            <th></th>
+        </tr>
+    </table>
+    -->
 </div>
 <div class="container">
     {% block user_login %} {% endblock %}
