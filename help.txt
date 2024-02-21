@@ -25,6 +25,17 @@ django-admin startproject mysite
 ###
 Как работает контроллер URLS
 ###
+
+###
+Создание администратора
+###
+ python manage.py createsuperuser
+
+###
+Создание администратора
+###
+
+
 TechSpace\urls.py ->
          \base.urls.py ->
          \base.views.py
@@ -100,14 +111,7 @@ class Task (models.Model):
     task название 'Описание' тип 'TextField'
 ###
 
-###
-Создание администратора
-###
- python manage.py createsuperuser
 
-###
-Создание администратора
-###
 
 
 ###
@@ -167,3 +171,9 @@ https://www.youtube.com/watch?time_continue=408&v=fgf57Sa5A-A&feature=emb_logo
 https://djangosimple.blogspot.com/2013/07/django.html
 
 https://pocoz.gitbooks.io/django-v-primerah/content/glava-7-sozdanie-internet-magazina/sozdanie-proekta-internet-magazina/sozdanie-predstavleniya-kataloga.html
+
+# Формы
+# https://tutorial.djangogirls.org/ru/django_forms/
+
+# Поиск
+# https://python-scripts.com/django-search

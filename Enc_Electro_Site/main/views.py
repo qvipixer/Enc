@@ -55,7 +55,7 @@ def file_upload(request):
         # print("!!! __POST__ !!!")
 
         Myfiles.objects.create(
-            text=request.POST.get("text"),
+            text=request.user,
             text_to=request.POST.get("text_to"),
             file=request.FILES.get("file"),
             remote_ip=request.META.get("REMOTE_ADDR"),

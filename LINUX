@@ -4,6 +4,9 @@ sudo nano /etc/systemd/system/EncLoger.service
 Перезапуск всех сервисов
 sudo systemctl daemon-reload
 
+Остановка сервиса
+sudo systemctl stop EncLoger.service
+
 Запуск сервиса
 sudo systemctl start EncLoger.service
 
