@@ -1,3 +1,9 @@
+# Формы
+# https://tutorial.djangogirls.org/ru/django_forms/
+
+# Поиск
+# https://python-scripts.com/django-search
+
 ### Старт Django
 Старт Django
 django-admin startproject mysite
@@ -172,8 +178,3 @@ https://djangosimple.blogspot.com/2013/07/django.html
 
 https://pocoz.gitbooks.io/django-v-primerah/content/glava-7-sozdanie-internet-magazina/sozdanie-proekta-internet-magazina/sozdanie-predstavleniya-kataloga.html
 
-# Формы
-# https://tutorial.djangogirls.org/ru/django_forms/
-
-# Поиск
-# https://python-scripts.com/django-search

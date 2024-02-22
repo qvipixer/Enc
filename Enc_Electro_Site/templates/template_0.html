@@ -63,6 +63,19 @@
             -->
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Подсказки
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item"><a class="nav-link disabled" href="#" aria-disabled="true">Электро-сказки</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="#" aria-disabled="true">Почта</a></li>
+            <!--
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            -->
+          </ul>
+        </li>
         <!--
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -83,8 +96,8 @@
             {% endif %}
         </div>
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="{% url 'as_search_results' %}" method="get" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Поиск</button>
       </form>
     </div>
@@ -111,6 +124,7 @@
 
     {% block ElcLogViewDetails %} {% endblock %}
 
+    {% block SearchResultsView %}{% endblock %}
 
     <div align="center" data-width="100%">
 

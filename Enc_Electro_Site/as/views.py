@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.db.models import Q  # новый
 from .models import ASLog, EncObject, EncProject, EncElectricalRoom, EncMechanism
 
 from django.views.generic import DetailView, ListView, TemplateView
@@ -68,3 +68,13 @@ class ASLogViewDetails(DetailView):
 class SearchResultsView(ListView):
     model = ASLog
     template_name = "search_results.html"
+
+    def get_queryset(self):  # новый
+        query = self.request.GET.get("search")
+        object_list = ASLog.objects.filter(
+            Q(record_text_full__icontains=query)
+            # or Q(record_text_title__icontains=query)
+            # or Q(record_object__icontains=query)
+            # or Q(record_electrical_room__icontains=query)
+        )
+        return object_list

@@ -3,7 +3,6 @@
 <table align="center" border="2px" width="100%">
     <tr>
         <th>Заголовок записи:</th>
-        <th>Короткий текст записи:</th>
         <th>Автор записи:</th>
         <th>Дата время создания</th>
         <th>Объект:</th>
@@ -13,13 +12,31 @@
     {% for record in all_electrical_log %}
     <tr>
         <td>
-            <a href="{% url 'new_elc_log_view_details' record.id %}" target="_blank">
-                {{record.record_text_title }}</a>
+            <p class="d-inline-flex gap-1">
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    {{ record.record_text_title | safe | slice:32 }}
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                  <div>
+                      {{record.record_text_title }}
+                  </div>
+                  <br>
+                  <div>
+                      <p class="d-inline-flex gap-1">
+                        {{ record.record_text_full }}
+                      </p>
+                  </div>
+                  <div>
+                      <a href="{% url 'new_elc_log_view_details' record.id %}" target="_blank">Подробнее</a>
+                  </div>
+              </div>
+            </div>
         </td>
-        <td>{{ record.record_text_description }}</td>
-        <td>{{ record.record_author }}</td>
-        <td>{{ record.record_data_create }}</td>
-        <td>{{ record.record_object }}</td>
+            <td>{{ record.record_author }}</td>
+            <td>{{ record.record_data_create }}</td>
+            <td>{{ record.record_object }}</td>
     </tr>
     {% endfor %}
 </table>

@@ -5,7 +5,6 @@ from .models import Myfiles
 
 
 def page(request):
-    print(request.user)
     # files_count = Myfiles.objects.count()
     # print(files_count)
     return render(

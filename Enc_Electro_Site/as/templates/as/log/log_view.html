@@ -9,11 +9,11 @@
             <th>Объект:</th>
         </tr>
         {% for record in all_automation_log %}
-        <tr>
+        <tr id="{{ record.id }}">
             <td>
-                <p class="d-inline-flex gap-1">
+                <p  class="d-inline-flex gap-1">
                   <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    {{record.record_text_title | safe | slice:32}}
+                    {{ record.record_text_title | safe | slice:32 }}
                   </a>
                 </p>
             <div class="collapse" id="collapseExample">
