@@ -1,15 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href=" {% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <title>{% block title %} {{ title }} {% endblock %}</title>
+{% extends 'template_0.html' %}
 
-</head>
-
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
-<h1><span class="badge bg-secondary">Энергетический ЦЕХ УРОЭ</span></h1>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'main_page' %}">Главная</a>
@@ -105,47 +95,3 @@
     </div>
   </div>
 </nav>
-<div class="container">
-    {% block user_login %} {% endblock %}
-
-    {% block download %} {% endblock %}
-
-    {% block upload %} {% endblock %}
-
-    {% block automation_log_add %} {% endblock %}
-
-    {% block automation_log_view %} {% endblock %}
-
-    {% block ASLogViewDetails %} {% endblock %}
-
-    {% block electrical_log_add %} {% endblock %}
-
-    {% block electrical_log_view %} {% endblock %}
-
-    {% block ElcLogViewDetails %} {% endblock %}
-
-    {% block SearchResultsView %}{% endblock %}
-
-    <div align="center" data-width="100%">
-
-        <h6>Carthago Delenda <span class="badge bg-secondary">Est !</span></h6>
-        <h5>Carthago Delenda <span class="badge bg-secondary">Est !</span></h5>
-        <h4>Carthago Delenda <span class="badge bg-secondary">Est !</span></h4>
-        <h3>Carthago Delenda <span class="badge bg-secondary">Est !</span></h3>
-        <h2>Carthago Delenda <span class="badge bg-secondary">Est !</span></h2>
-
-        <h1>Carthago Delenda <span class="badge bg-secondary">Est !</span></h1>
-
-        <h2>Carthago Delenda <span class="badge bg-secondary">Est !</span></h2>
-        <h3>Carthago Delenda <span class="badge bg-secondary">Est !</span></h3>
-        <h4>Carthago Delenda <span class="badge bg-secondary">Est !</span></h4>
-        <h5>Carthago Delenda <span class="badge bg-secondary">Est !</span></h5>
-        <h6>Carthago Delenda <span class="badge bg-secondary">Est !</span></h6>
-
-    </div>
-</div>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-<footer class="blog-footer">
-</footer>
-</body>
-</html>
