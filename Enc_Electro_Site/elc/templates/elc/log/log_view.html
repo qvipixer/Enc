@@ -13,11 +13,11 @@
     <tr>
         <td>
             <p class="d-inline-flex gap-1">
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{ record.id }}" role="button" aria-expanded="false" aria-controls="collapseExample{{ record.id }}">
                     {{ record.record_text_title | safe | slice:32 }}
                 </a>
             </p>
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapseExample{{ record.id }}">
               <div class="card card-body">
                   <div>
                       {{record.record_text_title }}
