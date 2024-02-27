@@ -18,10 +18,25 @@
 
             <div class="mb-3">
                 <label class="form-label" for="exampleFormControlTextarea1">Текст записи</label>
+                <br>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <input type="submit" class="btn btn btn-danger" onclick="document.getElementById('exampleFormControlTextarea1').value+='<ERROR> <ERROR>'; return false;" value = "Ошибка" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<SoftStart> <SoftStart>'; return false;" value = "Плавный пуск" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FrequencyDrive> <FrequencyDrive>'; return false;" value = "Частотный привод" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<ElectricalCabinet> <ElectricalCabinet>'; return false;" value = "Электрический Шкаф" />
+                    <input type="submit" class="btn btn-warning" onclick="document.getElementById('exampleFormControlTextarea1').value+='<Acknowledged> <Acknowledged>'; return false;" value = "Квитировали" />
+                </div>
+                <br>
+
+                <label class="form-label" for="exampleFormControlTextarea1"></label>
+
                 <textarea class="form-control"
                           id="exampleFormControlTextarea1"
                           name="record_text_full"
-                          rows="3">
+                          rows="3"
+                          type = "text"
+                          value = ""
+                >
                 </textarea>
                 <div class="form-text" id="text_to_record_text_full">Сюда Текст записи</div>
             </div>

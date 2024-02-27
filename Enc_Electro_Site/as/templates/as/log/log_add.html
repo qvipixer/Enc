@@ -19,27 +19,40 @@
 
             <div class="mb-3">
                 <label class="form-label" for="exampleFormControlTextarea1">Текст записи</label>
-
-                <!-- TODO -->
-
+                <br>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<DI> <<DI>'; return false;" value = "DI" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<DQ> <DQ>'; return false;" value = "DQ" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<PIW> <PIW>'; return false;" value = "PIW" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<PQW> <PQW>'; return false;" value = "PQW" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<OB> <OB>'; return false;" value = "OB" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FC> <FC>'; return false;" value = "FC" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FB> <FB>'; return false;" value = "FB" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<NW> <NW>'; return false;" value = "NW" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<DB> <DB>'; return false;" value = "DB" />
+                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<VAT> <VAT>'; return false;" value = "VAT" />
+                </div>
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<DI> '; return false;" value = "DI" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<DQ> '; return false;" value = "DQ" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<PIW> '; return false;" value = "PIW" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<PQW> '; return false;" value = "PQW" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<OB> '; return false;" value = "OB" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FC> '; return false;" value = "FC" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FB> '; return false;" value = "FB" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<NW> '; return false;" value = "NW" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<DB> '; return false;" value = "DB" />-->
+<!--                <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<VAT> '; return false;" value = "VAT" />-->
                 <br>
 
-                <button onclick="replace();">I</button>
-                <button onclick="replace();">Q</button>
-                <button onclick="replace();">PIW</button>
-                <button onclick="replace();">PQW</button>
-                <button onclick="replace();">OB</button>
-                <button onclick="replace();">FC</button>
-                <button onclick="replace();">FB</button>
-                <button onclick="replace();">DB</button>
-
-                <br>
                 <label class="form-label" for="exampleFormControlTextarea1"></label>
 
                 <textarea class="form-control"
                           id="exampleFormControlTextarea1"
                           name="record_text_full"
-                          rows="3">
+                          rows="3"
+                          type = "text"
+                          value = ""
+                >
                 </textarea>
                 <div class="form-text" id="text_to_record_text_full">Сюда Текст записи</div>
             </div>
