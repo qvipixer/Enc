@@ -6,7 +6,7 @@
 
             {% csrf_token %}
 
-          <div class="mb-3">
+            <div class="mb-3">
                 <label class="form-label" for="text_to_serv">Заголовок</label>
                 <input aria-describedby="text_to"
                        class="form-control"
@@ -19,12 +19,22 @@
             <div class="mb-3">
                 <label class="form-label" for="exampleFormControlTextarea1">Текст записи</label>
                 <br>
-                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <input type="submit" class="btn btn btn-danger" onclick="document.getElementById('exampleFormControlTextarea1').value+='<ERROR> <ERROR>'; return false;" value = "Ошибка" />
-                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<SoftStart> <SoftStart>'; return false;" value = "Плавный пуск" />
-                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FrequencyDrive> <FrequencyDrive>'; return false;" value = "Частотный привод" />
-                    <input type="submit" class="btn btn-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<ElectricalCabinet> <ElectricalCabinet>'; return false;" value = "Электрический Шкаф" />
-                    <input type="submit" class="btn btn-warning" onclick="document.getElementById('exampleFormControlTextarea1').value+='<Acknowledged> <Acknowledged>'; return false;" value = "Квитировали" />
+                <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                    <input class="btn btn-outline-danger" onclick="document.getElementById('exampleFormControlTextarea1').value+='<ERROR> <ERROR>'; return false;"
+                           type="submit"
+                           value="Ошибка"/>
+                    <input class="btn btn-outline-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<SoftStart> <SoftStart>'; return false;"
+                           type="submit"
+                           value="Плавный пуск"/>
+                    <input class="btn btn-outline-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<FrequencyDrive> <FrequencyDrive>'; return false;"
+                           type="submit"
+                           value="Частотный привод"/>
+                    <input class="btn btn-outline-success" onclick="document.getElementById('exampleFormControlTextarea1').value+='<ElectricalCabinet> <ElectricalCabinet>'; return false;"
+                           type="submit"
+                           value="Электрический Шкаф"/>
+                    <input class="btn btn-outline-warning" onclick="document.getElementById('exampleFormControlTextarea1').value+='<Acknowledged> <Acknowledged>'; return false;"
+                           type="submit"
+                           value="Квитировали"/>
                 </div>
                 <br>
 
@@ -34,14 +44,14 @@
                           id="exampleFormControlTextarea1"
                           name="record_text_full"
                           rows="3"
-                          type = "text"
-                          value = ""
+                          type="text"
+                          value=""
                 >
                 </textarea>
                 <div class="form-text" id="text_to_record_text_full">Сюда Текст записи</div>
             </div>
 
-            <select name="record_object">
+            <select class="form-select" name="record_object">
                 {% for el in all_enc_object %}
                 <option value="{{ el.id }}">
                     {{ el.title }}
@@ -49,7 +59,7 @@
                 {% endfor %}
             </select>
 
-            <select name="record_electrical_room">
+            <select class="form-select" name="record_electrical_room">
                 {% for el in all_enc_electrical_room %}
                 <option value="{{ el.id }}">
                     {{ el.title }}
@@ -58,7 +68,7 @@
             </select>
 
 
-            <select name="record_mechanism">
+            <select class="form-select" name="record_mechanism">
                 {% for el in all_enc_mechanism %}
                 <option value="{{ el.id }}">
                     {{ el.title }}

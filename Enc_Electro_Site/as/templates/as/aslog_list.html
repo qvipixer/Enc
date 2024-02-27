@@ -5,19 +5,39 @@
         <br>
         <div>По вашему запросу вот, что нашлось:</div>
         <br>
-          {% for result in object_list %}
+        {% for result in object_list %}
         <tr>
-            <th>{{ result.record_text_title }}</th>
+            <th>
+                <div>
+                    <p>
+                        {{ result.record_text_title }}
+                    </p>
+                </div>
+            </th>
         </tr>
         <tr>
             <td>
-                <br>
-                <p>{{ result.record_text_full }}</p>
-                <mark>[{{ result.record_object }}] [{{ result.record_electrical_room }}] [{{ result.record_project }}] [{{ result.record_mechanism }}]</mark>
+                <div>
+                    <p>
+                        {{ result.record_text_full }}
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <mark><b>[{{ result.record_object }}]</b></mark>
+                        |
+                        <mark><b>[{{ result.record_electrical_room }}]</b></mark>
+                        |
+                        <mark><b>[{{ result.record_project }}]</b></mark>
+                        |
+                        <mark><b>[{{ result.record_mechanism }}]</b></mark>
+                        <br>
+                    </p>
+                </div>
             </td>
 
         </tr>
-  {% endfor %}
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

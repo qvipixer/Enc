@@ -1,7 +1,7 @@
 {% extends 'template_0.html' %}
 {% block automation_log_view %}
 <div class="container">
-    <table align="center" border="2px" width="100%">
+    <table align="center" width="100%">
         <tr>
             <th>Заголовок записи:</th>
             <th>Автор записи:</th>
@@ -12,26 +12,27 @@
         <tr id="{{ record.id }}">
             <td>
                 <p class="d-inline-flex gap-1">
-                  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{ record.id }}" role="button" aria-expanded="false" aria-controls="collapseExample{{ record.id }}">
-                    {{ record.record_text_title | safe | slice:32 }}
-                  </a>
+                    <a aria-controls="collapseExample{{ record.id }}" aria-expanded="false" class="btn btn-outline-warning"
+                       data-bs-toggle="collapse" href="#collapseExample{{ record.id }}" role="button">
+                        {{ record.record_text_title | safe | slice:32 }}
+                    </a>
                 </p>
-            <div class="collapse" id="collapseExample{{ record.id }}">
-              <div class="card card-body">
-                  <div>
-                      {{record.record_text_title }}
-                  </div>
-                  <br>
-                  <div>
-                      <p class="d-inline-flex gap-1">
-                        {{ record.record_text_full }}
-                      </p>
-                  </div>
-                  <div>
-                      <a href="{% url 'new_as_log_view_details' record.id %}" target="_blank">Подробнее</a>
-                  </div>
-              </div>
-            </div>
+                <div class="collapse" id="collapseExample{{ record.id }}">
+                    <div class="card card-body">
+                        <div>
+                            {{record.record_text_title }}
+                        </div>
+                        <br>
+                        <div>
+                            <p class="d-inline-flex gap-1">
+                                {{ record.record_text_full }}
+                            </p>
+                        </div>
+                        <div>
+                            <a href="{% url 'new_as_log_view_details' record.id %}" target="_blank">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
             </td>
 
             <td>{{ record.record_author }}</td>
