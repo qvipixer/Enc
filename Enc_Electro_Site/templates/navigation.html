@@ -1,97 +1,104 @@
 {% extends 'template_0.html' %}
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'main_page' %}">Главная</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Журнал Simatic
-          </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'as_log_add' %}">Добавление в журнал</a></li>
-                <li><a class="dropdown-item" href="{% url 'as_log_view' %}">Просмотр журнала</a></li>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main_page' %}">Главная</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       role="button">
+                        Журнал Simatic
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'as_log_add' %}">Добавление в журнал</a></li>
+                        <li><a class="dropdown-item" href="{% url 'as_log_view' %}">Просмотр журнала</a></li>
+                        <!--
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        -->
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       role="button">
+                        Журнал Электриков
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'elc_log_add' %}">Добавление в журнал</a></li>
+                        <li><a class="dropdown-item" href="{% url 'elc_log_view' %}">Просмотр журнала</a></li>
+                        <!--
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        -->
+                    </ul>
+                </li>
                 <!--
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
                 -->
-              </ul>
-          </li>
-                    <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Журнал Электриков
-          </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'elc_log_add' %}">Добавление в журнал</a></li>
-                <li><a class="dropdown-item" href="{% url 'elc_log_view' %}">Просмотр журнала</a></li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       role="button">
+                        Файлы
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'upload' %}">Загрузить файлы</a></li>
+                        <li><a class="dropdown-item" href="{% url 'download' %}">Скачать файлы</a></li>
+                        <!--
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        -->
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       role="button">
+                        Подсказки
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item"><a aria-disabled="true" class="nav-link disabled"
+                                                href="#">Электро-сказки</a></li>
+                        <li class="nav-item"><a aria-disabled="true" class="nav-link disabled" href="#">Почта</a></li>
+                        <!--
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        -->
+                    </ul>
+                </li>
                 <!--
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
                 -->
-              </ul>
-          </li>
-        <!--
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Файлы
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'upload' %}">Загрузить файлы</a></li>
-            <li><a class="dropdown-item" href="{% url 'download' %}">Скачать файлы</a></li>
-            <!--
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            -->
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Подсказки
-          </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a class="nav-link disabled" href="#" aria-disabled="true">Электро-сказки</a></li>
-            <li class="nav-item"><a class="nav-link disabled" href="#" aria-disabled="true">Почта</a></li>
-            <!--
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            -->
-          </ul>
-        </li>
-        <!--
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-        -->
-      </ul>
+            </ul>
 
-        <div>
-            {% if request.user.is_authenticated %}
             <div>
-                Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}">Выйти</a>
+                {% if request.user.is_authenticated %}
+                <div>
+                    Вы авторизованы как: {{ request.user }} || <a class="navbar-brand"
+                                                                  href="{% url 'logout' %}">Выйти</a>
+                </div>
+
+                {% else %}
+                <div>
+                    Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a>
+                </div>
+                {% endif %}
             </div>
 
-            {% else %}
-            <div>
-                Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a>
-            </div>
-            {% endif %}
+            <form action="{% url 'as_search_results' %}" class="d-flex" method="get" role="search">
+                <input aria-label="Search" class="form-control me-2" name="search" placeholder="Search" type="search">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
         </div>
-
-      <form action="{% url 'as_search_results' %}" method="get" class="d-flex" role="search">
-        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Поиск</button>
-      </form>
     </div>
-  </div>
 </nav>

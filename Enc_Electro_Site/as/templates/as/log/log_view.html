@@ -12,7 +12,8 @@
         <tr id="{{ record.id }}">
             <td>
                 <p class="d-inline-flex gap-1">
-                    <a aria-controls="collapseExample{{ record.id }}" aria-expanded="false" class="btn btn-outline-warning"
+                    <a aria-controls="collapseExample{{ record.id }}" aria-expanded="false"
+                       class="btn btn-outline-warning"
                        data-bs-toggle="collapse" href="#collapseExample{{ record.id }}" role="button">
                         {{ record.record_text_title | safe | slice:32 }}
                     </a>
