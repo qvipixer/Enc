@@ -1,6 +1,15 @@
 from django.shortcuts import render, redirect
 
+from django.db.models import Q  # новый
+
 from django.contrib.auth import login, logout, authenticate
+
+from django.views.generic import DetailView, ListView, TemplateView
+
+from django.shortcuts import redirect
+
+from django.utils import timezone
+
 from .models import Myfiles
 
 
