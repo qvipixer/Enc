@@ -20,7 +20,7 @@ def page(request):
         request,
         template_name="main/index.html",
         context={
-            "title": "Главная страница",
+            "title": "УРОЭ Энергетический Цех",
             "aut_user": request.user,
         },
     )
