@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import file_download
 from .views import page
 from .views import file_upload
