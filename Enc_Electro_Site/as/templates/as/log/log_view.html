@@ -1,4 +1,5 @@
 {% extends 'template_0.html' %}
+{% load static %}
 {% block automation_log_view %}
 <div class="container">
     <table align="center" width="100%">
@@ -25,16 +26,12 @@
                         </div>
                         <br>
                         <div>
-
-                            <script type="text/javascript">
- SearchTag(text_box_{{ record.id }});
-
+                            <script>
+                                SearchTag(text_box_{{ record.id }})
                             </script>
-
                             <p id="text_box_{{ record.id }}" class="d-inline-flex gap-1" >
                                 {{ record.record_text_full }}
                             </p>
-
 
                         </div>
                         <div>
