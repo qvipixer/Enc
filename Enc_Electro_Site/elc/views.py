@@ -37,7 +37,7 @@ def elc_log_add(request):
         template_name="elc/log/log_add.html",
         context={
             "elc_log_add_form": elc_log_add_form,
-            "title": "Добавление в журнал",
+            "title": "Добавление в журнал Электриков",
             "all_electrical_categories": all_electrical_categories,
             "all_enc_object": all_enc_object,
             "all_enc_project": all_enc_project,
@@ -54,7 +54,7 @@ def elc_log_view(request):
         request,
         template_name="elc/log/log_view.html",
         context={
-            "title": "Просмотр журнала",
+            "title": "Просмотр журнала Электриков",
             "all_electrical_log": all_electrical_log,
         },
     )

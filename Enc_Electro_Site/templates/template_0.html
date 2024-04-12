@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/png"/>
     <title>{% block title %} {{ title }} {% endblock %}</title>
 </head>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
@@ -97,7 +97,7 @@
                     <li class="nav-item dropdown">
                         <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
                            role="button">
-                            Журнал Simatic
+                            Журнал Группы Автоматики
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'as_log_add' %}">Добавление в журнал</a></li>
@@ -153,14 +153,48 @@
                             <li class="nav-item"><a aria-disabled="true" class="nav-link disabled" href="#">Электро-сказки</a>
                             </li>
                             <ul class="nav-item dropdown">
-                                <li class="nav-item">
-                                    <a aria-disabled="true"
-                                       class="nav-link"
-                                       href="/media/upload_file/2024-02-23/%D0%9F%D0%BE_%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BA%D0%B0%D0%BC_2023.xls">ППР</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a aria-disabled="true" class="nav-link disabled" href="#">Почта</a>
-                                </li>
+                                <ul class="nav-item dropdown">Остальное
+                                    <li class="nav-item">
+                                        <a aria-disabled="true"
+                                           class="nav-link"
+                                           href="/media/upload_file/other/%D0%9F%D0%BE_%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BA%D0%B0%D0%BC_2023.xls">ППР</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-disabled="true"
+                                           class="nav-link"
+                                           href="/media/upload_file/other/EKBInst.pdf">EKB Manual</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-disabled="true"
+                                           class="nav-link"
+                                           href="/media/upload_file/other/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%20%D1%80%D0%B0%D0%B7%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B5%D0%BD%20%20%D0%B7%D0%BE%D0%BD%20%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%20%2006%2006%202022.doc">Положения
+                                            по разграничен зон обслуживания</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-disabled="true" class="nav-link disabled" href="#">Почта</a>
+                                    </li>
+                                </ul>
+                                <ul class="nav-item dropdown">Привод
+                                    <li class="nav-item">
+                                        <a aria-disabled="true"
+                                           class="nav-link"
+                                           href="/media/upload_file/drivers/SIEMENS/GSG_SINAMICS_G120C_ru-RU.pdf">
+                                            Привод SINAMICS_G120C</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-disabled="true"
+                                           class="nav-link"
+                                           href="/media/upload_file/drivers/ABB/RU_ACS800_standard_ctr_prg_FW_L.pdf">Привод
+                                            ABB_ACS800_RU</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a aria-disabled="true"
+                                           class="nav-link"
+                                           href="/media/upload_file/drivers/ABB/EN_ACS800_Standard_FW_L.pdf">Привод
+                                            ABB_ACS800_EU</a>
+                                    </li>
+                                </ul>
+                                <li class="nav-item"><a aria-disabled="true" class="nav-link disabled" href="#">Электро-сказки</a>
                             </ul>
                         </ul>
                     </li>
@@ -174,12 +208,14 @@
                 <div>
                     {% if request.user.is_authenticated %}
                     <div class="navbar-brand">
-                        Вы авторизованы как: {{ request.user }} || <a class="btn btn-outline-warning" href="{% url 'logout' %}">Выйти</a>
+                        Вы авторизованы как: {{ request.user }} || <a class="btn btn-outline-warning"
+                                                                      href="{% url 'logout' %}">Выйти</a>
                         <!-- Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}">Выйти</a>-->
                     </div>
                     {% else %}
                     <div class="navbar-brand">
-                        Вы авторизованы как: Гость || <a class="btn btn-outline-danger" href="{% url 'login' %}">Войти</a>
+                        Вы авторизованы как: Гость || <a class="btn btn-outline-danger"
+                                                         href="{% url 'login' %}">Войти</a>
                         <!--Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a>-->
                     </div>
                     {% endif %}

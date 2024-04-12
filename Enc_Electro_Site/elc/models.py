@@ -15,7 +15,11 @@ class ElcLog(models.Model):
     record_author = models.CharField(verbose_name="Автор записи", max_length=100)
 
     record_data_create = models.DateTimeField(
-        verbose_name="Дата создания записи", auto_now=True
+        verbose_name="Дата создания записи", auto_now_add=True, editable=False
+    )
+
+    record_data_update = models.DateTimeField(
+        verbose_name="Дата редактирования записи", auto_now=True, editable=False
     )
 
     record_object = models.ForeignKey(

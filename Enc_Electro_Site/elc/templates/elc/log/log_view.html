@@ -4,7 +4,8 @@
     <tr>
         <th>Заголовок записи:</th>
         <th>Автор записи:</th>
-        <th>Дата время создания</th>
+        <th>Дата время создания:</th>
+        <th>Дата время редактирования:</th>
         <th>Объект:</th>
 
 
@@ -37,6 +38,7 @@
         </td>
         <td>{{ record.record_author }}</td>
         <td>{{ record.record_data_create }}</td>
+        <td>{{ record.record_data_update }}</td>
         <td>{{ record.record_object }}</td>
     </tr>
     {% endfor %}

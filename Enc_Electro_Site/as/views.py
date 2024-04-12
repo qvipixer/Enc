@@ -8,6 +8,7 @@ from .forms import AsLogAddForm
 from django.shortcuts import redirect
 from django.utils import timezone
 
+
 # Create your views here.
 
 
@@ -35,7 +36,7 @@ def as_log_add(request):
         template_name="as/log/log_add.html",
         context={
             "as_log_add_form": as_log_add_form,
-            "title": "Добавление в журнал",
+            "title": "Добавление в журнал Группы Автоматики",
             "all_automation_categories": all_automation_categories,
             "all_enc_object": all_enc_object,
             "all_enc_project": all_enc_project,
@@ -49,11 +50,15 @@ def as_log_view(request):
     all_automation_log = ASLog.objects.order_by("-id")[:10]
     # all_automation_log = ASLog.objects.all()
     # print(all_automation_log)
+    print(all_automation_log)
+    # if "Участок" in ASLog:
+    #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
     return render(
         request,
         template_name="as/log/log_view.html",
         context={
-            "title": "Просмотр журнала",
+            "title": "Просмотр журнала Группы Автоматики",
             "all_automation_log": all_automation_log,
         },
     )

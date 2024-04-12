@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import EncObject, EncProject, EncElectricalRoom, EncMechanism
 
+
 # Register your models here.
 
 
