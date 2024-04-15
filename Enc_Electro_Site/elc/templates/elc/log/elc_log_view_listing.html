@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Django Paginator example</title>
+</head>
+<body>
+<div class="container">
+    {% for post in page_obj.object_list %}
+    {# note that the list of posts are in the page_obj.object_list not page_obj #}
+    <h1>{{post.title}}</h1>
+    <small>{{post.author}}</small>
+
+    <p>{{post.content}}</p>
+
+    <hr/>
+    {% endfor %}
+</div>
+<center>
+    {%if page_obj.has_previous %} {# whether the previous page exists #}
+    <a href="?page={{page_obj.previous_page_number}}"><</a> {# link to the prev page #}
+    {% endif %}
+    <span>{{page_obj.number}}</span> {# the current page number #}
+
+    {%if page_obj.has_next %} {# whether the next page exists #}
+    <a href="?page={{page_obj.next_page_number}}">></a> {# link to the next page #}
+    {% endif %}
+</center>
+</body>
+</html>

@@ -1,5 +1,27 @@
 {% extends 'template_0.html' %}
 {% block electrical_log_view %}
+<div class="container">
+    {% for record in context.object_list %}
+    {# note that the list of posts are in the page_obj.object_list not page_obj #}
+    <h1>{{context.full_name}}</h1>
+    <small>{{record.author}}</small>
+
+    <p>{{record.content}}</p>
+
+    <hr/>
+    {% endfor %}
+</div>
+
+<center>
+    {%if page_obj.has_previous %} {# whether the previous page exists #}
+    <a href="?page={{page_obj.previous_page_number}}"><</a> {# link to the prev page #}
+    {% endif %}
+    <span>{{page_obj.number}}</span> {# the current page number #}
+
+    {%if page_obj.has_next %} {# whether the next page exists #}
+    <a href="?page={{page_obj.next_page_number}}">></a> {# link to the next page #}
+    {% endif %}
+</center>
 <table align="center" width="100%">
     <tr>
         <th>Заголовок записи:</th>
@@ -8,7 +30,11 @@
         <th>Дата время редактирования:</th>
         <th>Объект:</th>
 
-
+        {% for contact in page_obj %}
+        {# Each "contact" is a Contact model object. #}
+        {{ contact.full_name|upper }}<br>
+        ...
+        {% endfor %}
     </tr>
     {% for record in all_electrical_log %}
     <tr>
@@ -42,5 +68,7 @@
         <td>{{ record.record_object }}</td>
     </tr>
     {% endfor %}
+
+
 </table>
 {% endblock %}
