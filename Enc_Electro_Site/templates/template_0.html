@@ -208,14 +208,14 @@
                 <div>
                     {% if request.user.is_authenticated %}
                     <div class="navbar-brand">
-                        Вы авторизованы как: {{ request.user }} || <a class="btn btn-outline-warning"
-                                                                      href="{% url 'logout' %}">Выйти</a>
+                        Вы: {{ request.user }} || <a class="btn btn-outline-warning"
+                                                     href="{% url 'logout' %}">Выйти</a>
                         <!-- Вы авторизованы как: {{ request.user }} || <a class="navbar-brand" href="{% url 'logout' %}">Выйти</a>-->
                     </div>
                     {% else %}
                     <div class="navbar-brand">
-                        Вы авторизованы как: Гость || <a class="btn btn-outline-danger"
-                                                         href="{% url 'login' %}">Войти</a>
+                        Вы: Гость || <a class="btn btn-outline-danger"
+                                        href="{% url 'login' %}">Войти</a>
                         <!--Вы авторизованы как: Гость || <a class="navbar-brand" href="{% url 'login' %}">Войти</a>-->
                     </div>
                     {% endif %}
@@ -230,6 +230,7 @@
         </div>
     </nav>
     <div class="container">
+        <br>
         {% if request.user.is_authenticated %}
         {% block download %} {% endblock %}
         {% block upload %} {% endblock %}

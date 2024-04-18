@@ -19,12 +19,24 @@
             <div class="mb-3">
                 <label class="form-label" for="exampleFormControlTextarea1">Кнопки меток для быстрого поиска</label>
                 <br>
-                <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                <div aria-label="Basic mixed styles example" class="d-grid gap-2 d-md-block" role="group">
                     <input class="btn btn-outline-danger"
                            onclick="document.getElementById('exampleFormControlTextarea1').value+='<ERROR> </ERROR>'; return false;"
                            type="submit"
                            value="Ошибка"/>
+                    <br>
 
+                    <input class="btn btn-outline-warning"
+                           onclick="document.getElementById('exampleFormControlTextarea1').value+='<Acknowledged> </Acknowledged>'; return false;"
+                           type="submit"
+                           value="Квитировали"/>
+
+                    <input class="btn btn-outline-warning"
+                           onclick="document.getElementById('exampleFormControlTextarea1').value+='<CircuitBreaker> </CircuitBreaker>'; return false;"
+                           type="submit"
+                           value="Автомат"/>
+
+                    <br>
                     <input class="btn btn-outline-success"
                            onclick="document.getElementById('exampleFormControlTextarea1').value+='<Cell> </Cell>'; return false;"
                            type="submit"
@@ -39,25 +51,20 @@
                            onclick="document.getElementById('exampleFormControlTextarea1').value+='<SoftStart> </SoftStart>'; return false;"
                            type="submit"
                            value="Плавный пуск"/>
+                    <br>
+
                     <input class="btn btn-outline-success"
                            onclick="document.getElementById('exampleFormControlTextarea1').value+='<FrequencyDrive> </FrequencyDrive>'; return false;"
                            type="submit"
                            value="Частотный привод"/>
+
                     <input class="btn btn-outline-success"
                            onclick="document.getElementById('exampleFormControlTextarea1').value+='<ElectricalCabinet> </ElectricalCabinet>'; return false;"
                            type="submit"
                            value="Электрический Шкаф"/>
-                    <input class="btn btn-outline-warning"
-                           onclick="document.getElementById('exampleFormControlTextarea1').value+='<Acknowledged> </Acknowledged>'; return false;"
-                           type="submit"
-                           value="Квитировали"/>
-                    <input class="btn btn-outline-warning"
-                           onclick="document.getElementById('exampleFormControlTextarea1').value+='<CircuitBreaker> </CircuitBreaker>'; return false;"
-                           type="submit"
-                           value="Автомат"/>
+
                 </div>
                 <br>
-
                 <label class="form-label" for="exampleFormControlTextarea1"></label>
 
                 <textarea class="form-control"

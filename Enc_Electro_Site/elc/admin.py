@@ -6,7 +6,12 @@ from .models import ElcLog
 
 
 class ElcASLogAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("record_text_title", "record_object", "record_data_create")
+    list_filter = (
+        "record_object",
+        "record_electrical_room",
+        "record_mechanism",
+    )
 
 
 admin.site.register(ElcLog, ElcASLogAdmin)

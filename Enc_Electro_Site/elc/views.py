@@ -1,6 +1,3 @@
-# https://tutorial.djangogirls.org/ru/django_forms/
-
-
 from django.shortcuts import render
 
 from .models import ElcLog, EncObject, EncProject, EncElectricalRoom, EncMechanism
@@ -48,12 +45,15 @@ def elc_log_add(request):
 
 
 def elc_log_view(request):
-    all_electrical_log = ElcLog.objects.order_by("-id")[:10]
+    # all_electrical_log = ElcLog.objects.order_by("-id")[:10]
 
-    posts = ElcLog.objects.all()  # fetching all post objects from database
-    p = Paginator(posts, 5)  # creating a paginator object
+    all_electrical_log = ElcLog.objects.all().order_by(
+        "-id"
+    )  # fetching all post objects from database
+    p = Paginator(all_electrical_log, 5)  # creating a paginator object
     # getting the desired page number from url
     page_number = request.GET.get("page")
+
     try:
         page_obj = p.get_page(page_number)  # returns the desired page object
     except PageNotAnInteger:
@@ -77,24 +77,6 @@ def elc_log_view(request):
     )
 
 
-def elc_log_view_listing(request):
-    posts = ElcLog.objects.all()  # fetching all post objects from database
-    p = Paginator(posts, 5)  # creating a paginator object
-    # getting the desired page number from url
-    page_number = request.GET.get("page")
-    try:
-        page_obj = p.get_page(page_number)  # returns the desired page object
-    except PageNotAnInteger:
-        # if page_number is not an integer then assign the first page
-        page_obj = p.page(1)
-    except EmptyPage:
-        # if page is empty then return last page
-        page_obj = p.page(p.num_pages)
-    context = {"page_obj": page_obj}
-    # sending the page object to index.html
-    return render(request, "elc/log/elc_log_view_listing.html", context)
-
-
 class ElcLogLogViewDetails(DetailView):
     model = ElcLog
     context_object_name = "log_view_details"
@@ -103,3 +85,18 @@ class ElcLogLogViewDetails(DetailView):
 # class ElcLogLogListView(ListView):
 #     paginate_by = 2
 #     model = ElcLog
+
+
+class SearchResultsView(ListView):
+    model = ElcLog
+    template_name = "search_results.html"
+
+    def get_queryset(self):  # новый
+        query = self.request.GET.get("search")
+        object_list = ElcLog.objects.filter(
+            Q(record_text_full__icontains=query)
+            # or Q(record_text_title__icontains=query)
+            # or Q(record_object__icontains=query)
+            # or Q(record_electrical_room__icontains=query)
+        )
+        return object_list

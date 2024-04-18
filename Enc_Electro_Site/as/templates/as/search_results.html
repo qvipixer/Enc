@@ -5,10 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-{% for result in object_list %}
-<li>
-    {{ result.record_text_title }} <br> {{ result.record_text_full }}
-</li>
-{% endfor %}
+<ul>
+    {% for result in object_list %}
+    <li>
+        {{ result.record_text_title }} <br> {{ result.record_text_full }}
+    </li>
+    {% endfor %}
+</ul>
 </body>
 </html>

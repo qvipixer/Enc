@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.db.models import Q  # новый
 from .models import ASLog, EncObject, EncProject, EncElectricalRoom, EncMechanism
 
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import DetailView, ListView, TemplateView
 
 from .forms import AsLogAddForm
@@ -47,19 +48,32 @@ def as_log_add(request):
 
 
 def as_log_view(request):
-    all_automation_log = ASLog.objects.order_by("-id")[:10]
-    # all_automation_log = ASLog.objects.all()
-    # print(all_automation_log)
-    print(all_automation_log)
-    # if "Участок" in ASLog:
-    #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    # all_automation_log = ASLog.objects.order_by("-id")[:10]
+    all_automation_log = ASLog.objects.all().order_by("-id")
+
+    p = Paginator(all_automation_log, 5)  # creating a paginator object
+    # getting the desired page number from url
+    page_number = request.GET.get("page")
+    try:
+        page_obj = p.get_page(page_number)  # returns the desired page object
+    except PageNotAnInteger:
+        # if page_number is not an integer then assign the first page
+        page_obj = p.page(1)
+    except EmptyPage:
+        # if page is empty then return last page
+        page_obj = p.page(p.num_pages)
+    context = {"page_obj": page_obj}
+
+    # sending the page object to index.html
+    page_values = page_obj.object_list.values()
 
     return render(
         request,
         template_name="as/log/log_view.html",
         context={
             "title": "Просмотр журнала Группы Автоматики",
-            "all_automation_log": all_automation_log,
+            "page_obj": page_obj,
+            "context": context,
         },
     )
 

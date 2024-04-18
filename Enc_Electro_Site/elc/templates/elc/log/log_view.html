@@ -1,74 +1,74 @@
 {% extends 'template_0.html' %}
+{% load static %}
 {% block electrical_log_view %}
 <div class="container">
-    {% for record in context.object_list %}
-    {# note that the list of posts are in the page_obj.object_list not page_obj #}
-    <h1>{{context.full_name}}</h1>
-    <small>{{record.author}}</small>
-
-    <p>{{record.content}}</p>
-
-    <hr/>
-    {% endfor %}
-</div>
-
-<center>
-    {%if page_obj.has_previous %} {# whether the previous page exists #}
-    <a href="?page={{page_obj.previous_page_number}}"><</a> {# link to the prev page #}
-    {% endif %}
-    <span>{{page_obj.number}}</span> {# the current page number #}
-
-    {%if page_obj.has_next %} {# whether the next page exists #}
-    <a href="?page={{page_obj.next_page_number}}">></a> {# link to the next page #}
-    {% endif %}
-</center>
-<table align="center" width="100%">
-    <tr>
-        <th>Заголовок записи:</th>
-        <th>Автор записи:</th>
-        <th>Дата время создания:</th>
-        <th>Дата время редактирования:</th>
-        <th>Объект:</th>
-
-        {% for contact in page_obj %}
-        {# Each "contact" is a Contact model object. #}
-        {{ contact.full_name|upper }}<br>
-        ...
-        {% endfor %}
-    </tr>
-    {% for record in all_electrical_log %}
-    <tr>
-        <td>
-            <p class="d-inline-flex gap-1">
-                <a aria-controls="collapseExample{{ record.id }}" aria-expanded="false" class="btn btn-outline-warning"
-                   data-bs-toggle="collapse" href="#collapseExample{{ record.id }}" role="button">
-                    {{ record.record_text_title | safe | slice:32 }}
-                </a>
-            </p>
-            <div class="collapse" id="collapseExample{{ record.id }}">
-                <div class="card card-body">
-                    <div>
-                        {{record.record_text_title }}
-                    </div>
-                    <br>
-                    <div>
-                        <p class="d-inline-flex gap-1">
-                            {{ record.record_text_full }}
-                        </p>
-                    </div>
-                    <div>
-                        <a href="{% url 'new_elc_log_view_details' record.id %}" target="_blank">Подробнее</a>
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    {%if page_obj.has_previous %}
+                    <a class="page-link" href="?page={{page_obj.previous_page_number}}">Сюда</a>
+                    {% endif %}
+                </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+                </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="#"> Страница из Страниц</a>
+                </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">
+                        {{ page_obj.paginator.num_pages }}</a>
+                </li>
+                <li class="page-item">
+                    {%if page_obj.has_next %}
+                    <a class="page-link" href="?page={{page_obj.next_page_number}}">Туда</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <table align="center" width="100%">
+        <tr>
+            <th>Заголовок записи:</th>
+            <th>Автор записи:</th>
+            <th>Дата время создания:</th>
+            <th>Дата время редактирования:</th>
+            <th>Объект:</th>
+        </tr>
+        <tr>
+            {% for record in page_obj.object_list %}
+            <td>
+                <p class="d-inline-flex gap-1">
+                    <a aria-controls="collapseExample{{ record.id }}" aria-expanded="false"
+                       class="btn btn-outline-warning"
+                       data-bs-toggle="collapse" href="#collapseExample{{ record.id }}" role="button">
+                        {{ record.record_text_title | safe | slice:32 }}
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample{{ record.id }}">
+                    <div class="card card-body">
+                        <div>
+                            {{record.record_text_title }}
+                        </div>
+                        <br>
+                        <div>
+                            <p class="d-inline-flex gap-1">
+                                {{ record.record_text_full }}
+                            </p>
+                        </div>
+                        <div>
+                            <a href="{% url 'new_elc_log_view_details' record.id %}" target="_blank">Подробнее</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </td>
-        <td>{{ record.record_author }}</td>
-        <td>{{ record.record_data_create }}</td>
-        <td>{{ record.record_data_update }}</td>
-        <td>{{ record.record_object }}</td>
-    </tr>
-    {% endfor %}
-
-
-</table>
+            </td>
+            <td>{{ record.record_author }}</td>
+            <td>{{ record.record_data_create }}</td>
+            <td>{{ record.record_data_update }}</td>
+            <td>{{ record.record_object }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}
