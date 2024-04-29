@@ -220,12 +220,21 @@
                     </div>
                     {% endif %}
                 </div>
+                <div>
+                    <form action="{% url 'as_search_results' %}" class="d-flex" method="get" role="search">
+                        <input aria-label="Search" class="form-control me-2" name="search" placeholder="Автоматчики"
+                               type="search">
+                        <button class="btn btn-outline-success" type="submit">Ищем</button>
 
-                <form action="{% url 'as_search_results' %}" class="d-flex" method="get" role="search">
-                    <input aria-label="Search" class="form-control me-2" name="search" placeholder="Search"
-                           type="search">
-                    <button class="btn btn-outline-success" type="submit">Поиск</button>
-                </form>
+
+                    </form>
+                    <form action="{% url 'elc_search_results' %}" class="d-flex" method="get" role="search">
+                        <input aria-label="Search" class="form-control me-2" name="search" placeholder="Электрики"
+                               type="search">
+                        <button class="btn btn-outline-success" type="submit">Ищем</button>
+                    </form>
+                </div>
+
             </div>
         </div>
     </nav>

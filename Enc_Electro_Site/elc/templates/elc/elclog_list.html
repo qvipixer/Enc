@@ -1,0 +1,46 @@
+{% extends 'template_0.html' %}
+{% block SearchResultsView %}
+<div class="container">
+    <table align="center" border="2px" width="100%">
+        <br>
+        <div>По вашему запросу вот, что нашлось:</div>
+        <br>
+        {% for result in object_list %}
+        <tr>
+            <th>
+                <div>
+                    <p>
+                        {{ result.record_text_title }}
+                    </p>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <p>
+                        {{ result.record_text_full }}
+                    </p>
+                    <a href="{% url 'new_elc_log_view_details' result.id %}" target="_blank">Подробнее</a>
+                </div>
+                <br>
+                <div>
+                    <p>
+                        <mark><b>[{{ result.record_object }}]</b></mark>
+                        |
+                        <mark><b>[{{ result.record_electrical_room }}]</b></mark>
+                        |
+                        <mark><b>[{{ result.record_project }}]</b></mark>
+                        |
+                        <mark><b>[{{ result.record_mechanism }}]</b></mark>
+
+                        <br>
+                    </p>
+                </div>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

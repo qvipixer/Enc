@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from django.db.models import Q  # новый
 from .models import ElcLog, EncObject, EncProject, EncElectricalRoom, EncMechanism
+
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from .forms import ElcLogAddForm
 from django.shortcuts import redirect
