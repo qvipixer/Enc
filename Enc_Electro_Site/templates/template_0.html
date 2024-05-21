@@ -276,47 +276,47 @@
     </div>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </main>
-    <script>
-        const open_dq = '&lt;DQ&gt;';
-        const close_dq = '&lt;/DQ&gt;';
+<script>
+    const open_dq = '&lt;DQ&gt;';
+    const close_dq = '&lt;/DQ&gt;';
 
-        const open_fc = '&lt;FC&gt;';
-        const close_fc = '&lt;/FC&gt;';
+    const open_fc = '&lt;FC&gt;';
+    const close_fc = '&lt;/FC&gt;';
 
-        const open_plink = '&lt;PLink&gt;';
-        const close_plink = '&lt;/PLink&gt;';
+    const open_plink = '&lt;PLink&gt;';
+    const close_plink = '&lt;/PLink&gt;';
 
-        const open_nw = '&lt;NW&gt;';
-        const close_nw = '&lt;/NW&gt;';
+    const open_nw = '&lt;NW&gt;';
+    const close_nw = '&lt;/NW&gt;';
 
-        const open_ElectricalCabinet = '&lt;ElectricalCabinet&gt;';
-        const close_ElectricalCabinet = '&lt;/ElectricalCabinet&gt;';
+    const open_ElectricalCabinet = '&lt;ElectricalCabinet&gt;';
+    const close_ElectricalCabinet = '&lt;/ElectricalCabinet&gt;';
 
-        const content = document.getElementById('record_text_full');
+    const content = document.getElementById('record_text_full');
 
-        for (let i = 1; i <= 5; i++) {
-          console.log(i);
+    for (let i = 1; i <= 5; i++) {
+      console.log(i);
 
-        content.innerHTML = content.innerHTML.replace(open_dq, '<a href >');
-        content.innerHTML = content.innerHTML.replace(close_dq, '</a>');
+    content.innerHTML = content.innerHTML.replace(open_dq, '<a href >');
+    content.innerHTML = content.innerHTML.replace(close_dq, '</a>');
 
-        content.innerHTML = content.innerHTML.replace(open_fc, '<a href >');
-        content.innerHTML = content.innerHTML.replace(close_fc, '</a>');
+    content.innerHTML = content.innerHTML.replace(open_fc, '<a href >');
+    content.innerHTML = content.innerHTML.replace(close_fc, '</a>');
 
-        content.innerHTML = content.innerHTML.replace(open_plink, '<a href >');
-        content.innerHTML = content.innerHTML.replace(close_plink, '</a>');
+    content.innerHTML = content.innerHTML.replace(open_plink, '<a href >');
+    content.innerHTML = content.innerHTML.replace(close_plink, '</a>');
 
-        content.innerHTML = content.innerHTML.replace(open_nw, '<a href >');
-        content.innerHTML = content.innerHTML.replace(close_nw, '</a>');
+    content.innerHTML = content.innerHTML.replace(open_nw, '<a href >');
+    content.innerHTML = content.innerHTML.replace(close_nw, '</a>');
 
-        content.innerHTML = content.innerHTML.replace(open_ElectricalCabinet, '<a href >');
-        content.innerHTML = content.innerHTML.replace(close_ElectricalCabinet, '</a>');
+    content.innerHTML = content.innerHTML.replace(open_ElectricalCabinet, '<a href >');
+    content.innerHTML = content.innerHTML.replace(close_ElectricalCabinet, '</a>');
 }
 
 
-        <!--        console.log(content.innerHTML);-->
+    <!--        console.log(content.innerHTML);-->
 
-    </script>
+</script>
 <footer class="blog-footer">
 </footer>
 </body>
