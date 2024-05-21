@@ -1,7 +1,6 @@
 {% extends 'template_0.html' %}
 {% block title %} {{ log_view_details.record_text_title }} {% endblock %}
 {% block ASLogViewDetails %}
-
 <table align="center" border="2px" width="100%">
     <tr>
         <th>Автор записи:</th>
@@ -17,7 +16,10 @@
     </tr>
     <tr>
         <th>Текст записи:</th>
-        <td>{{ log_view_details.record_text_full }}</td>
+        <td>
+            <div id="record_text_full">{{ log_view_details.record_text_full }}
+            </div>
+        </td>
     </tr>
     <tr>
         <th>Электропомещение:</th>
@@ -32,4 +34,6 @@
         <td>{{ log_view_details.record_mechanism }}</td>
     </tr>
 </table>
+
+
 {% endblock %}

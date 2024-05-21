@@ -1,6 +1,6 @@
 {% extends 'template_0.html' %}
 {% block SearchResultsView %}
-<div class="container">
+<div class="container" id="record_text_full">
     <table align="center" border="2px" width="100%">
         <br>
         <div>По вашему запросу вот, что нашлось:</div>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td>
-                <div>
+                <div >
                     <p>
                         {{ result.record_text_full }}
                     </p>
